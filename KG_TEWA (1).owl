@@ -1,0 +1,1192 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.AirDefencePak.com/TEWA"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.AirDefencePak.com/TEWA">
+    <Prefix name="" IRI="http://www.AirDefencePak.com/TEWA"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal>This is an ontology designed for Threat Evaluation and Weapon Assignment in Ground Based Air Defence Environment.</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="http://www.AirDefencePak.com/"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Anza-Missile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Capability"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Close"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Colour"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DefendedAsset"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#F-35"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#F-7"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Far"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FirstGen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GDF-Gun"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Generation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gun"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HighCapability"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HighIntent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HighLevel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Intent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#JF-16"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#JF-17"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LowCapability"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LowIntent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LowLevel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MIG-21"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MediumLevel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mirage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Missile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mushshak"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Proximity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RBS-70-Missile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SecondGen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TYPE58-Gun"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TYPE85-Gun"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Terror"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Threat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Weapon"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#AssignedTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#CloseTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCapability"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasColour"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasGeneration"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasIntent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasRedAlert"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#wasAssigned"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Altitude"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Ammunition"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Distance"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#HeadingAngle"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ID"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Latitude"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Longtitude"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ManufacturingYear"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#MaxRange"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Range"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Speed"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ThreatScore"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Velocity"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Vitality"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#F1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#F2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Green"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#JF_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#LightRed"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#M1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#M2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#M3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MIG1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MIG2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PMA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Red"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Close"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Proximity"/>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#Distance"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:long"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxExclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#long">300</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Colour"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#Green"/>
+            <NamedIndividual IRI="#LightRed"/>
+            <NamedIndividual IRI="#Red"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#F-35"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Threat"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#wasAssigned"/>
+                <Class IRI="#Anza-Missile"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Far"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Proximity"/>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#Distance"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:long"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#long">300</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#FirstGen"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasGeneration"/>
+                <Class IRI="#Generation"/>
+            </ObjectSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#ManufacturingYear"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:unsignedLong"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#unsignedLong">2010</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#HighCapability"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Capability"/>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#Ammunition"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:int"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">10</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#Speed"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:long"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#long">800</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#HighIntent"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Intent"/>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#Altitude"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:long"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#long">900</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#HighLevel"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Terror"/>
+            <ObjectUnionOf>
+                <Class IRI="#Close"/>
+                <Class IRI="#HighCapability"/>
+                <Class IRI="#HighIntent"/>
+            </ObjectUnionOf>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#ThreatScore"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:int"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">17</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#JF-17"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Threat"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#wasAssigned"/>
+                <Class IRI="#GDF-Gun"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#LowCapability"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Capability"/>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#Ammunition"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:int"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxExclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">10</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#Speed"/>
+                <DataIntersectionOf>
+                    <DatatypeRestriction>
+                        <Datatype abbreviatedIRI="xsd:long"/>
+                        <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
+                            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#long">100</Literal>
+                        </FacetRestriction>
+                    </DatatypeRestriction>
+                    <DatatypeRestriction>
+                        <Datatype abbreviatedIRI="xsd:long"/>
+                        <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxExclusive">
+                            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#long">800</Literal>
+                        </FacetRestriction>
+                    </DatatypeRestriction>
+                </DataIntersectionOf>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#LowIntent"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Intent"/>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#Altitude"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:long"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#long">900</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#LowLevel"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Terror"/>
+            <ObjectUnionOf>
+                <Class IRI="#LowIntent"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#Far"/>
+                    <Class IRI="#LowCapability"/>
+                </ObjectIntersectionOf>
+            </ObjectUnionOf>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#ThreatScore"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:int"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxExclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">10</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MIG-21"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Threat"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#wasAssigned"/>
+                <Class IRI="#TYPE58-Gun"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MediumLevel"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Terror"/>
+            <ObjectUnionOf>
+                <Class IRI="#Close"/>
+                <Class IRI="#HighCapability"/>
+                <Class IRI="#HighIntent"/>
+            </ObjectUnionOf>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#ThreatScore"/>
+                <DataIntersectionOf>
+                    <DatatypeRestriction>
+                        <Datatype abbreviatedIRI="xsd:int"/>
+                        <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
+                            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">10</Literal>
+                        </FacetRestriction>
+                    </DatatypeRestriction>
+                    <DatatypeRestriction>
+                        <Datatype abbreviatedIRI="xsd:int"/>
+                        <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxExclusive">
+                            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">16</Literal>
+                        </FacetRestriction>
+                    </DatatypeRestriction>
+                </DataIntersectionOf>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Mirage"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Threat"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#wasAssigned"/>
+                <Class IRI="#TYPE85-Gun"/>
+            </ObjectSomeValuesFrom>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#has"/>
+                <ObjectOneOf>
+                    <NamedIndividual IRI="#M1"/>
+                    <NamedIndividual IRI="#M2"/>
+                </ObjectOneOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SecondGen"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasGeneration"/>
+                <Class IRI="#Generation"/>
+            </ObjectSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#ManufacturingYear"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:unsignedLong"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#unsignedLong">2010</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="http://www.AirDefencePak.com/"/>
+        <Class IRI="#Weapon"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Anza-Missile"/>
+        <Class IRI="#Missile"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Close"/>
+        <Class IRI="#Proximity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#F-7"/>
+        <Class IRI="#Threat"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FirstGen"/>
+        <Class IRI="#Generation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GDF-Gun"/>
+        <Class IRI="#Gun"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gun"/>
+        <Class IRI="#Weapon"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#JF-16"/>
+        <Class IRI="#Threat"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LowLevel"/>
+        <Class IRI="#Terror"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MIG-21"/>
+        <Class IRI="#Threat"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MediumLevel"/>
+        <Class IRI="#Terror"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Missile"/>
+        <Class IRI="#Weapon"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mushshak"/>
+        <Class IRI="#Threat"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Proximity"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#has"/>
+            <ObjectUnionOf>
+                <Class IRI="#Close"/>
+                <Class IRI="#Far"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RBS-70-Missile"/>
+        <Class IRI="#Missile"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SecondGen"/>
+        <Class IRI="#Generation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TYPE58-Gun"/>
+        <Class IRI="#Gun"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TYPE85-Gun"/>
+        <Class IRI="#Gun"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Terror"/>
+        <Class IRI="#Threat"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Weapon"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#AssignedTo"/>
+            <Class IRI="#Threat"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="http://www.AirDefencePak.com/"/>
+        <Class IRI="#LowCapability"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Anza-Missile"/>
+        <Class IRI="#RBS-70-Missile"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Close"/>
+        <Class IRI="#Far"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#DefendedAsset"/>
+        <Class IRI="#Threat"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#DefendedAsset"/>
+        <Class IRI="#Weapon"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#F-35"/>
+        <Class IRI="#F-7"/>
+        <Class IRI="#JF-16"/>
+        <Class IRI="#JF-17"/>
+        <Class IRI="#MIG-21"/>
+        <Class IRI="#Mirage"/>
+        <Class IRI="#Mushshak"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#GDF-Gun"/>
+        <Class IRI="#TYPE58-Gun"/>
+        <Class IRI="#TYPE85-Gun"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Gun"/>
+        <Class IRI="#Missile"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#HighCapability"/>
+        <Class IRI="#LowCapability"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#HighIntent"/>
+        <Class IRI="#LowIntent"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#HighLevel"/>
+        <Class IRI="#LowLevel"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#HighLevel"/>
+        <Class IRI="#MediumLevel"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#LowLevel"/>
+        <Class IRI="#MediumLevel"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#Capability"/>
+        <NamedIndividual IRI="#F1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Terror"/>
+        <NamedIndividual IRI="#F1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Threat"/>
+        <NamedIndividual IRI="#F1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#wasAssigned"/>
+            <Class IRI="#Anza-Missile"/>
+        </ObjectSomeValuesFrom>
+        <NamedIndividual IRI="#F1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Capability"/>
+        <NamedIndividual IRI="#F2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Proximity"/>
+        <NamedIndividual IRI="#F2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Terror"/>
+        <NamedIndividual IRI="#F2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Threat"/>
+        <NamedIndividual IRI="#F2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Colour"/>
+        <NamedIndividual IRI="#Green"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasGeneration"/>
+            <Class IRI="#Generation"/>
+        </ObjectSomeValuesFrom>
+        <NamedIndividual IRI="#JF_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#wasAssigned"/>
+            <Class IRI="#GDF-Gun"/>
+        </ObjectSomeValuesFrom>
+        <NamedIndividual IRI="#JF_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Colour"/>
+        <NamedIndividual IRI="#LightRed"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Intent"/>
+        <NamedIndividual IRI="#M1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Mirage"/>
+        <NamedIndividual IRI="#M1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Terror"/>
+        <NamedIndividual IRI="#M1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Mirage"/>
+        <NamedIndividual IRI="#M2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Threat"/>
+        <NamedIndividual IRI="#M2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Proximity"/>
+        <NamedIndividual IRI="#M3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Terror"/>
+        <NamedIndividual IRI="#M3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Threat"/>
+        <NamedIndividual IRI="#M3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#wasAssigned"/>
+            <Class IRI="#TYPE85-Gun"/>
+        </ObjectSomeValuesFrom>
+        <NamedIndividual IRI="#M3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Capability"/>
+        <NamedIndividual IRI="#MIG1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Intent"/>
+        <NamedIndividual IRI="#MIG1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MIG-21"/>
+        <NamedIndividual IRI="#MIG1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Terror"/>
+        <NamedIndividual IRI="#MIG1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Threat"/>
+        <NamedIndividual IRI="#MIG1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasGeneration"/>
+            <Class IRI="#Generation"/>
+        </ObjectSomeValuesFrom>
+        <NamedIndividual IRI="#MIG1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Capability"/>
+        <NamedIndividual IRI="#MIG2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Proximity"/>
+        <NamedIndividual IRI="#MIG2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Terror"/>
+        <NamedIndividual IRI="#MIG2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Threat"/>
+        <NamedIndividual IRI="#MIG2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DefendedAsset"/>
+        <NamedIndividual IRI="#PMA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Colour"/>
+        <NamedIndividual IRI="#Red"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#CloseTo"/>
+        <NamedIndividual IRI="#M1"/>
+        <NamedIndividual IRI="#PMA"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Ammunition"/>
+        <NamedIndividual IRI="#F1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">14</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Speed"/>
+        <NamedIndividual IRI="#F1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#long">900</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ThreatScore"/>
+        <NamedIndividual IRI="#F1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">30</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Ammunition"/>
+        <NamedIndividual IRI="#F2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Distance"/>
+        <NamedIndividual IRI="#F2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#long">600</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ManufacturingYear"/>
+        <NamedIndividual IRI="#JF_1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#unsignedLong">2015</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ThreatScore"/>
+        <NamedIndividual IRI="#JF_1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">22</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Altitude"/>
+        <NamedIndividual IRI="#M1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#long">700</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Distance"/>
+        <NamedIndividual IRI="#M1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#long">300</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ThreatScore"/>
+        <NamedIndividual IRI="#M1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">23</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Distance"/>
+        <NamedIndividual IRI="#M3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#long">900</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ThreatScore"/>
+        <NamedIndividual IRI="#M3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#long">7</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Altitude"/>
+        <NamedIndividual IRI="#MIG1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#long">1700</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Ammunition"/>
+        <NamedIndividual IRI="#MIG1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ManufacturingYear"/>
+        <NamedIndividual IRI="#MIG1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#unsignedLong">2003</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Speed"/>
+        <NamedIndividual IRI="#MIG1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">300</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ThreatScore"/>
+        <NamedIndividual IRI="#MIG1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Ammunition"/>
+        <NamedIndividual IRI="#MIG2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">20</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Distance"/>
+        <NamedIndividual IRI="#MIG2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#long">600</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Speed"/>
+        <NamedIndividual IRI="#MIG2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#long">1000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ThreatScore"/>
+        <NamedIndividual IRI="#MIG2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">15</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Vitality"/>
+        <NamedIndividual IRI="#PMA"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">15</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#CloseTo"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasCapability"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasColour"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasGeneration"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasIntent"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasRedAlert"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#AssignedTo"/>
+        <ObjectProperty IRI="#wasAssigned"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#wasAssigned"/>
+    </FunctionalObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#CloseTo"/>
+        <Class IRI="#Threat"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasRedAlert"/>
+        <Class IRI="#DefendedAsset"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#wasAssigned"/>
+        <Class IRI="#Threat"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#CloseTo"/>
+        <Class IRI="#DefendedAsset"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasRedAlert"/>
+        <Class IRI="#Threat"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#wasAssigned"/>
+        <Class IRI="#Weapon"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#Altitude"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#Ammunition"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#Distance"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#HeadingAngle"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#Latitude"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#Longtitude"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#ManufacturingYear"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#Range"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#Speed"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#Vitality"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S2</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Threat"/>
+                <Variable IRI="#t"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#HighLevel"/>
+                <Variable IRI="#t"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasColour"/>
+                <Variable IRI="#t"/>
+                <NamedIndividual IRI="#Red"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S4</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Threat"/>
+                <Variable IRI="#t"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#LowLevel"/>
+                <Variable IRI="#t"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasColour"/>
+                <Variable IRI="#t"/>
+                <NamedIndividual IRI="#Green"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S3</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Threat"/>
+                <Variable IRI="#t"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#MediumLevel"/>
+                <Variable IRI="#t"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasColour"/>
+                <Variable IRI="#t"/>
+                <NamedIndividual IRI="#LightRed"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S5</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Threat"/>
+                <Variable IRI="#t"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#CloseTo"/>
+                <Variable IRI="#t"/>
+                <Variable IRI="#d"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#Vitality"/>
+                <Variable IRI="#d"/>
+                <Variable IRI="#v"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#greaterThan">
+                <Variable IRI="#v"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">12</Literal>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasRedAlert"/>
+                <Variable IRI="#d"/>
+                <Variable IRI="#t"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S1</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Threat"/>
+                <Variable IRI="#t"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#Ammunition"/>
+                <Variable IRI="#t"/>
+                <Variable IRI="#amm"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#equal">
+                <Variable IRI="#amm"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">0</Literal>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#LowLevel"/>
+                <Variable IRI="#t"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SecondGen</IRI>
+        <Literal></Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
