@@ -28,7 +28,9 @@ def getSimulatorData(request):
         "Long":Long,
         "angles":angles,
         "threatIndex":finalThreatIndex,
-        "name":name
+        "threatScore":threatscore,
+        "name":name,
+        "CarriedWeapon":ammunition
     }
 
     return JsonResponse(data)

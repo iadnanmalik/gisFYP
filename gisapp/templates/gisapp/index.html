@@ -149,7 +149,7 @@ var markerSargodha=L.marker([32.0455,72.6716],{
     $.getJSON("{%url 'pakdata' %}", function(data){
         L.geoJSON(data,{
             onEachFeature: function(feature, layer){
-                layer.bindPopup(`District: ${feature.properties.name_1}, Division: ${feature.properties.name_2}, Province: ${feature.properties.name_3}`);
+                layer.bindPopup(`Province: ${feature.properties.name_1}, Division: ${feature.properties.name_2}, District: ${feature.properties.name_3}`);
             }
             ,
         
@@ -269,7 +269,9 @@ var delayInMilliseconds = 7000; //7 seconds
                     newL2={};
                     newAngle={}
                     newTi={};
-                    newname=""
+                    newCW="";
+                    newname="";
+                    newTS="";
                     var newmarkerInLoop= {};
                     var i=0
                     var j=0
@@ -293,7 +295,7 @@ var delayInMilliseconds = 7000; //7 seconds
 
                                     
                                     }).addTo(map)
-                                    markerInLoop.bindPopup('Plane: '+data.name + '</br>' +'Threat Index: ' + data.threatIndex[i]);
+                                    markerInLoop.bindPopup('Plane: '+data.name + '</br>' +'Threat Index: ' + data.threatIndex[i]+'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore);
                                     markerInLoop.start();
                                 }
                                 if(data.threatIndex[j]>12 && data.threatIndex[j]<=20.5){
@@ -304,7 +306,7 @@ var delayInMilliseconds = 7000; //7 seconds
 
                                     
                                     }).addTo(map);
-                                   markerInLoop.bindPopup('Plane: '+data.name + '</br>' +'Threat Index: ' + data.threatIndex[i]);
+                                   markerInLoop.bindPopup('Plane: '+data.name + '</br>' +'Threat Index: ' + data.threatIndex[i]+'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore);
                                    
                                     markerInLoop.start();
                                 }
@@ -316,7 +318,7 @@ var delayInMilliseconds = 7000; //7 seconds
 
                                     
                                     }).addTo(map);
-                                    markerInLoop.bindPopup('Plane: '+data.name + '</br>' +'Threat Index: ' + data.threatIndex[i]);
+                                    markerInLoop.bindPopup('Plane: '+data.name + '</br>' +'Threat Index: ' + data.threatIndex[i]+'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore);
                                    
                                     markerInLoop.start();
                                 }
@@ -334,7 +336,7 @@ var delayInMilliseconds = 7000; //7 seconds
 
                                         
                                         }).addTo(map);
-                                    newmarkerInLoop.bindPopup('Plane: '+newname + '</br>' +'Threat Index: ' + newTi[i]);
+                                    newmarkerInLoop.bindPopup('Plane: '+newname + '</br>' +'Threat Index: ' + newTi[k]+'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS);
                                    
                                         newmarkerInLoop.start();
                                     }
@@ -346,7 +348,7 @@ var delayInMilliseconds = 7000; //7 seconds
 
                                         
                                         }).addTo(map);
-                                    newmarkerInLoop.bindPopup('Plane: '+newname + '</br>' +'Threat Index: ' + newTi[i]);
+                                    newmarkerInLoop.bindPopup('Plane: '+newname + '</br>' +'Threat Index: ' + newTi[k]+'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS);
                                    
                                         newmarkerInLoop.start();
                                     }
@@ -359,7 +361,7 @@ var delayInMilliseconds = 7000; //7 seconds
                                         
                                         }).addTo(map);
                                    
-                                    newmarkerInLoop.bindPopup('Plane: '+newname + '</br>' +'Threat Index: ' + newTi[i]);
+                                    newmarkerInLoop.bindPopup('Plane: '+newname + '</br>' +'Threat Index: ' + newTi[k]+'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS);
                                    
                                         newmarkerInLoop.start();
                                     }
@@ -380,6 +382,8 @@ var delayInMilliseconds = 7000; //7 seconds
                                         newAngle=data1.angles
                                         newTi=data1.threatIndex
                                         newname=data1.name
+                                        newCW=data1.CarriedWeapon
+                                        newTS=data1.threatScore
                                     }
                                 }
                                 )

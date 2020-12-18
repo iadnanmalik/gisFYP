@@ -45,7 +45,7 @@ def threatgeneration():
      
      rangee=random.randrange(300,700,50)
      angle=random.randint(0,360)
-     threatscore =random.randint(0,7)
+     threatscore =random.randint(1,7)
      speed=random.randint(600,900)
      ammuniation=random.randint(0,5)
      
