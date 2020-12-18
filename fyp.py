@@ -242,7 +242,7 @@ print(ThreatEvaluation(DefendedAssetsContainer,ThreatsContainer))
 #moderate darmeani height pa
 
 def getThreatIndex(lat,lon,threatscore,threatid,threatspeed,ammunition,altitude):
-    threat=ThreatAirCraft(threatid,"Titan1","Interceptor",2011,threatspeed,altitude,lat,lon,threatscore,0)
+    threat=ThreatAirCraft(threatid,"Titan1","Interceptor",2011,threatspeed,altitude,lat,lon,threatscore,ammunition)
     #1221,"Titan1","Interceptor",2011,10000,5000,11.5204,94.3587,1,0
     threatindex=[]
     tind=ThreatEvaluation(DefendedAssetsContainer,threat)

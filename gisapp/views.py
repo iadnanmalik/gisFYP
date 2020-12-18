@@ -10,7 +10,7 @@ def PakData(request):
     pakdata=serialize('geojson',PakAdm3.objects.all())
     return HttpResponse(pakdata,content_type='geojson')
 def getSimulatorData(request):
-    Lat,Long,angles,threatscore,threatid,threatspeed,ammunition,altitude=simulation()
+    Lat,Long,angles,threatscore,threatid,threatspeed,ammunition,altitude,name=simulation()
     threatIndex=[]
     for i in range (len(Lat)):
         threatIndex.append(getThreatIndex(Lat[i],Long[i],threatscore,threatid,threatspeed,ammunition,altitude))
@@ -27,7 +27,8 @@ def getSimulatorData(request):
         "Lat":Lat,
         "Long":Long,
         "angles":angles,
-        "threatIndex":finalThreatIndex
+        "threatIndex":finalThreatIndex,
+        "name":name
     }
 
     return JsonResponse(data)

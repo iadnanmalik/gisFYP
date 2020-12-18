@@ -269,6 +269,7 @@ var delayInMilliseconds = 7000; //7 seconds
                     newL2={};
                     newAngle={}
                     newTi={};
+                    newname=""
                     var newmarkerInLoop= {};
                     var i=0
                     var j=0
@@ -281,19 +282,21 @@ var delayInMilliseconds = 7000; //7 seconds
                             console.log(data.Long[j],data.Long[j+1])
                             console.log(data.angles[j])
                             console.log("Threat Index")
+                            console.log(data.name)
                             console.log(data.threatIndex[j])
                             
-                                if(data.threatIndex[j]>=0 && data.threatIndex[j]<=10){
+                                if(data.threatIndex[j]>=0 && data.threatIndex[j]<=12){
                                 map.removeLayer(markerInLoop);
                                 markerInLoop=L.Marker.movingMarker([[data.Lat[j],data.Long[j]],[data.Lat[j+1],data.Long[j+1]]],
                                     [7000],{icon:planegreenIcon,
                                         rotationAngle:data.angles[j],
 
                                     
-                                    }).addTo(map);
+                                    }).addTo(map)
+                                    markerInLoop.bindPopup('Plane: '+data.name + '</br>' +'Threat Index: ' + data.threatIndex[i]);
                                     markerInLoop.start();
                                 }
-                                if(data.threatIndex[j]>10 && data.threatIndex[j]<=17){
+                                if(data.threatIndex[j]>12 && data.threatIndex[j]<=20.5){
                                 map.removeLayer(markerInLoop);
                                 markerInLoop=L.Marker.movingMarker([[data.Lat[j],data.Long[j]],[data.Lat[j+1],data.Long[j+1]]],
                                     [7000],{icon:planelightredIcon,
@@ -301,9 +304,11 @@ var delayInMilliseconds = 7000; //7 seconds
 
                                     
                                     }).addTo(map);
+                                   markerInLoop.bindPopup('Plane: '+data.name + '</br>' +'Threat Index: ' + data.threatIndex[i]);
+                                   
                                     markerInLoop.start();
                                 }
-                                if(data.threatIndex[j]>17){
+                                if(data.threatIndex[j]>20.5){
                                 map.removeLayer(markerInLoop);
                                 markerInLoop=L.Marker.movingMarker([[data.Lat[j],data.Long[j]],[data.Lat[j+1],data.Long[j+1]]],
                                     [7000],{icon:planeredIcon,
@@ -311,6 +316,8 @@ var delayInMilliseconds = 7000; //7 seconds
 
                                     
                                     }).addTo(map);
+                                    markerInLoop.bindPopup('Plane: '+data.name + '</br>' +'Threat Index: ' + data.threatIndex[i]);
+                                   
                                     markerInLoop.start();
                                 }
                             }
@@ -319,7 +326,7 @@ var delayInMilliseconds = 7000; //7 seconds
                             }
                             if(newL1.length>0){
 
-                                if(newTi[k]>=0 && newTi[k]<=10){
+                                if(newTi[k]>=0 && newTi[k]<=12){
                                     map.removeLayer(newmarkerInLoop);
                                     newmarkerInLoop=L.Marker.movingMarker([[newL1[k],newL2[k]],[newL1[k+1],newL2[k+1]]],
                                         [7000],{icon:planegreenIcon,
@@ -327,9 +334,11 @@ var delayInMilliseconds = 7000; //7 seconds
 
                                         
                                         }).addTo(map);
+                                    newmarkerInLoop.bindPopup('Plane: '+newname + '</br>' +'Threat Index: ' + newTi[i]);
+                                   
                                         newmarkerInLoop.start();
                                     }
-                                if(newTi[k]>10 && newTi[k]<=17){
+                                if(newTi[k]>12 && newTi[k]<=20.5){
                                     map.removeLayer(newmarkerInLoop);
                                     newmarkerInLoop=L.Marker.movingMarker([[newL1[k],newL2[k]],[newL1[k+1],newL2[k+1]]],
                                         [7000],{icon:planelightredIcon,
@@ -337,9 +346,11 @@ var delayInMilliseconds = 7000; //7 seconds
 
                                         
                                         }).addTo(map);
+                                    newmarkerInLoop.bindPopup('Plane: '+newname + '</br>' +'Threat Index: ' + newTi[i]);
+                                   
                                         newmarkerInLoop.start();
                                     }
-                                    if(newTi[k]>17 ){
+                                    if(newTi[k]>20.5 ){
                                     map.removeLayer(newmarkerInLoop);
                                     newmarkerInLoop=L.Marker.movingMarker([[newL1[k],newL2[k]],[newL1[k+1],newL2[k+1]]],
                                         [7000],{icon:planeredIcon,
@@ -347,6 +358,9 @@ var delayInMilliseconds = 7000; //7 seconds
 
                                         
                                         }).addTo(map);
+                                   
+                                    newmarkerInLoop.bindPopup('Plane: '+newname + '</br>' +'Threat Index: ' + newTi[i]);
+                                   
                                         newmarkerInLoop.start();
                                     }
                                     console.log("NewTi",newTi[k])
@@ -365,6 +379,7 @@ var delayInMilliseconds = 7000; //7 seconds
                                         newL2=data1.Long
                                         newAngle=data1.angles
                                         newTi=data1.threatIndex
+                                        newname=data1.name
                                     }
                                 }
                                 )

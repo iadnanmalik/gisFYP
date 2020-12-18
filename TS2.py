@@ -95,7 +95,7 @@ def simulation():
         angles.append(angle)
 
         angle+=10
-    return latitude,longitude,angles,threat.threatscore,threat.ID,threat.speed,threat.ammuniation,threat.altitude
+    return latitude,longitude,angles,threat.threatscore,threat.ID,threat.speed,threat.ammuniation,threat.altitude,threat.name
 def main():
     t=1
     threat=threatgeneration()
