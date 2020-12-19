@@ -4,19 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaflet Map</title>
+    <title>Ground Based Air Defence</title>
 
     <link
     rel="stylesheet"
     href="{% static './Leaflet/node_modules/leaflet/dist/leaflet.css' %}"
   />
   <script src="{% static './Leaflet/node_modules/leaflet/dist/leaflet.js' %}"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
 <body>
-    <h1> 
-        Pakistan Zindabad!!
-    </h1>
+<!-- As a heading -->
+<nav class="navbar navbar-light bg bg-dark">
+  <span class="navbar-brand mb-0 h1" style="color: white">TEWA</span>
+  <span class="h4 mb-0 justify-content-center" style="color: green">
+    Pakistan Zindabad
+  </span>
+  <span class="navbar-text mb-0 h5" style="color: white">
+    Air Defence
+    </span>
+</nav>
+  
+ 
     <div id="map" style="width: 100%; height: 900px;" >
 
     </div>
@@ -24,7 +34,9 @@
 <script src="{% static './Leaflet/data/PAK_adm3.js' %}"></script>
 <script type="text/javascript" src="{% static './Leaflet/data/MovingMarker.js' %}"></script>
 <script src="{% static './Leaflet/data/leaflet.rotatedMarker.js' %}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script>
 
     
@@ -295,7 +307,7 @@ var delayInMilliseconds = 7000; //7 seconds
 
                                     
                                     }).addTo(map)
-                                    markerInLoop.bindPopup('Plane: '+data.name + '</br>' +'Threat Index: ' + data.threatIndex[i]+'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore);
+                                    markerInLoop.bindPopup('Plane: '+data.name+'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore + '</br>' +'Threat Index: ' + data.threatIndex[i].toFixed(2));
                                     markerInLoop.start();
                                 }
                                 if(data.threatIndex[j]>12 && data.threatIndex[j]<=20.5){
@@ -306,7 +318,7 @@ var delayInMilliseconds = 7000; //7 seconds
 
                                     
                                     }).addTo(map);
-                                   markerInLoop.bindPopup('Plane: '+data.name + '</br>' +'Threat Index: ' + data.threatIndex[i]+'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore);
+                                   markerInLoop.bindPopup('Plane: '+data.name +'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore + '</br>' +'Threat Index: ' + data.threatIndex[i].toFixed(2)).openPopup();
                                    
                                     markerInLoop.start();
                                 }
@@ -318,7 +330,7 @@ var delayInMilliseconds = 7000; //7 seconds
 
                                     
                                     }).addTo(map);
-                                    markerInLoop.bindPopup('Plane: '+data.name + '</br>' +'Threat Index: ' + data.threatIndex[i]+'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore);
+                                    markerInLoop.bindPopup('Plane: '+data.name +'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore + '</br>' +'Threat Index: ' + data.threatIndex[i].toFixed(2));
                                    
                                     markerInLoop.start();
                                 }
@@ -336,7 +348,7 @@ var delayInMilliseconds = 7000; //7 seconds
 
                                         
                                         }).addTo(map);
-                                    newmarkerInLoop.bindPopup('Plane: '+newname + '</br>' +'Threat Index: ' + newTi[k]+'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS);
+                                    newmarkerInLoop.bindPopup('Plane: '+newname +'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS+ '</br>' +'Threat Index: ' + newTi[k].toFixed(2)).openPopup();
                                    
                                         newmarkerInLoop.start();
                                     }
@@ -348,7 +360,7 @@ var delayInMilliseconds = 7000; //7 seconds
 
                                         
                                         }).addTo(map);
-                                    newmarkerInLoop.bindPopup('Plane: '+newname + '</br>' +'Threat Index: ' + newTi[k]+'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS);
+                                    newmarkerInLoop.bindPopup('Plane: '+newname +'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS+ '</br>' +'Threat Index: ' + newTi[k].toFixed(2));
                                    
                                         newmarkerInLoop.start();
                                     }
@@ -361,7 +373,7 @@ var delayInMilliseconds = 7000; //7 seconds
                                         
                                         }).addTo(map);
                                    
-                                    newmarkerInLoop.bindPopup('Plane: '+newname + '</br>' +'Threat Index: ' + newTi[k]+'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS);
+                                    newmarkerInLoop.bindPopup('Plane: '+newname +'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS+ '</br>' +'Threat Index: ' + newTi[k].toFixed(2));
                                    
                                         newmarkerInLoop.start();
                                     }

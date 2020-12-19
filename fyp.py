@@ -235,7 +235,7 @@ ThreatEvaluation(DefendedAssetsContainer,ThreatsContainer)
 #moderate darmeani height pa
 
 print("Check Titan2")
-print(ThreatEvaluation(DefendedAssetsContainer,ThreatsContainer))
+#print(ThreatEvaluation(DefendedAssetsContainer,ThreatsContainer))
 #0 wo threat ha jis k pas weapon he nae
 #high means height pa ha
 #low kam height pa
@@ -248,9 +248,9 @@ def getThreatIndex(lat,lon,threatscore,threatid,threatspeed,ammunition,altitude)
     tind=ThreatEvaluation(DefendedAssetsContainer,threat)
     #print(tind)
     for key, value in tind.items(): 
-        print (key, value) 
+        #print (key, value) 
         threatindex.append(value)
-        print("\n")
+        #print("\n")
     
     nthreatindex=[]
     return threatindex

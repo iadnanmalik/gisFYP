@@ -22,3 +22,12 @@ class PakAdm3(models.Model):
         db_table = 'PAK_adm3'
     def __str__(self):
         return self.name_3
+
+class ThreatValue(models.Model):
+    ID = models.IntegerField
+    name=models.CharField(max_length=75)
+    model=models.CharField(max_length=75)
+
+    typ=models.CharField(max_length=75)
+    def __str__(self):
+        return self.name 

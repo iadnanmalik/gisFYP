@@ -7,8 +7,7 @@ Created on Sun Nov 29 21:59:47 2020
 import random
 import time
 import math
-
-
+from gisapp.models import ThreatValue
 radius= 6378.1
 
 
@@ -36,19 +35,51 @@ class Threat:
         return str(self)
 
 def threatgeneration():
+
      ID = ['1001','1002','1003','1101','3002','3003''4002','4003']
      name=['Cargo','Bomber','MIG-21','MIG-25','F-15','F-16','MIG-19','MIG-23']
      model=['2001','2002','2003','2005','2006','2007','2014','2010']
      typ=['Rotorcraft','FixedWing','JetCraft','PropellerCraft']
      lat=[27.4888,30.3222,31.2555,33.10,36.40]  #lat
      lon=[71.8666,69.8888,74.1999,73.74,69.93] #lon
-     
+     ID1=ThreatValue.objects.values('id')
+     name1=ThreatValue.objects.values('name')
+     model1=ThreatValue.objects.values('model')
+     typ1=ThreatValue.objects.values('typ')
+     name1list=[]
      rangee=random.randrange(300,700,50)
      angle=random.randint(0,360)
      threatscore =random.randint(1,7)
-     speed=random.randint(600,900)
+     speed=random.randint(300,500)
      ammuniation=random.randint(0,5)
-     
+     for names in name1: 
+        #print (key, value) 
+        name1list.append(names['name'])
+        #print("\n")
+     print(name1list)
+     ID1list=[]
+     print(ID1)
+     for ids in ID1: 
+        #print (key, value) 
+        ID1list.append(ids['id'])
+        #print("\n")
+     print(ID1list)
+     model1list=[]
+     for models in model1: 
+        #print (key, value) 
+        model1list.append(models['model'])
+        #print("\n")
+     print(model1list)
+     typ1list=[]
+     for typs in typ1: 
+        #print (key, value) 
+        typ1list.append(typs['typ'])
+        #print("\n")
+     print(typ1list)
+     ID=ID1list
+     name=name1list
+     model=model1list
+     typ=typ1list
      
      threatid=random.choice(ID)
      ID.remove(threatid)

@@ -14,13 +14,13 @@ def getSimulatorData(request):
     threatIndex=[]
     for i in range (len(Lat)):
         threatIndex.append(getThreatIndex(Lat[i],Long[i],threatscore,threatid,threatspeed,ammunition,altitude))
-    print("Threat Index Printing")
+    #print("Threat Index Printing")
     #print(threatIndex)
     finalThreatIndex=[]
     for i in range(len(threatIndex)):
         maxval=max(threatIndex[i])
         finalThreatIndex.append(maxval)
-    print(finalThreatIndex)
+    #print(finalThreatIndex)
 
 
     data={
