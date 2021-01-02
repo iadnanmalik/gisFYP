@@ -51,7 +51,7 @@ def threatgeneration():
      angle=random.randint(0,360)
      threatscore =random.randint(1,7)
      speed=random.randint(300,500)
-     ammuniation=random.randint(0,5)
+     ammuniation=random.randint(1,10)
      for names in name1: 
         #print (key, value) 
         name1list.append(names['name'])

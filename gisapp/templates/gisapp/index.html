@@ -31,20 +31,21 @@
 
     </div>
 </body>
+
 <script src="{% static './Leaflet/data/PAK_adm3.js' %}"></script>
 <script type="text/javascript" src="{% static './Leaflet/data/MovingMarker.js' %}"></script>
 <script src="{% static './Leaflet/data/leaflet.rotatedMarker.js' %}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script>
 
-    
+<script>    
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
   }
+// Set View 
 var map = L.map("map").setView([30.3753, 69.3451], 5);
-
+// -------------------- Icons-------------------------------
 var greenIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -75,7 +76,7 @@ planelightredIcon= new L.icon({
         });
 
 
-
+// -----------------Open Street Map Layer---------------------------------
 var osm = L.tileLayer(
 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
 {
@@ -107,6 +108,8 @@ var baseLayers ={
     "water color": Watercolor,
     "street map": WorldStreetMap
 };
+
+//----------------------------------Defended Assets-----------------------------------------
 
 var marker=L.marker([33.6844,73.0479],{
     draggable : true,
@@ -158,6 +161,7 @@ var markerSargodha=L.marker([32.0455,72.6716],{
              
     }).addTo(map);
     
+//------------------------------------------Pakistan Administrative Boundaries----------------------------------------
     $.getJSON("{%url 'pakdata' %}", function(data){
         L.geoJSON(data,{
             onEachFeature: function(feature, layer){
@@ -180,7 +184,7 @@ var markerSargodha=L.marker([32.0455,72.6716],{
     //}).addTo(map);
 //...
 //myMovingMarker.start();
-
+/*
 function getNextLatLong(l2,l1,angrad,distance,){
     var lon1=l1*(Math.PI/180);   
     var lat1=l2*(Math.PI/180);
@@ -197,6 +201,7 @@ function getNextLatLong(l2,l1,angrad,distance,){
     };
     
 };
+*/
 /*
 var delayInMilliseconds = 7000; //7 seconds
   var time=1;
@@ -270,147 +275,148 @@ var delayInMilliseconds = 7000; //7 seconds
     }, delayInMilliseconds)
   })(11); 
 */
-  $.ajax({
-                url: "{% url 'getSimulatorData' %}",
-                type: "GET",
-                success: function(data) {
-                    l1=data.Lat[0];
-                    l2=data.Long[0];
-                    var markerInLoop= {};
-                    newL1={};
-                    newL2={};
-                    newAngle={}
-                    newTi={};
-                    newCW="";
-                    newname="";
-                    newTS="";
-                    var newmarkerInLoop= {};
-                    var i=0
-                    var j=0
-                    var k=0
-                    loopvalue=12
-                    for(let i = 0; i <loopvalue; i++) {
-                        setTimeout(() => {
-                            if(j<data.Lat.length-2){
-                                console.log(data.Lat[j],data.Lat[j+1])
-                            console.log(data.Long[j],data.Long[j+1])
-                            console.log(data.angles[j])
-                            console.log("Threat Index")
-                            console.log(data.name)
-                            console.log(data.threatIndex[j])
+  
+  //-----------------------------------------AJAX call-------------------------
+$.ajax({
+    url: "{% url 'getSimulatorData' %}",
+    type: "GET",
+    success: function(data) {
+        l1=data.Lat[0]; // latitude
+        l2=data.Long[0]; // longitude
+        var markerInLoop= {}; // moving marker
+        newL1={}; 
+        newL2={};
+        newAngle={}
+        newTi={};
+        newCW="";
+        newname="";
+        newTS="";
+        var newmarkerInLoop= {};
+        var i=0
+        var j=0
+        var k=0
+        loopvalue=12
+        for(let i = 0; i <loopvalue; i++) {
+            setTimeout(() => {
+                if(j<data.Lat.length-2){
+                    console.log(data.Lat[j],data.Lat[j+1])
+                    console.log(data.Long[j],data.Long[j+1])
+                    console.log(data.angles[j])
+                    console.log("Threat Index")
+                    console.log(data.name)
+                    console.log(data.threatIndex[j])
+                    
+                    if(data.threatIndex[j]>=0 && data.threatIndex[j]<=12){
+                        map.removeLayer(markerInLoop);
+                        markerInLoop=L.Marker.movingMarker([[data.Lat[j],data.Long[j]],[data.Lat[j+1],data.Long[j+1]]],
+                            [7000],{icon:planegreenIcon,
+                                rotationAngle:data.angles[j],
+
                             
-                                if(data.threatIndex[j]>=0 && data.threatIndex[j]<=12){
-                                map.removeLayer(markerInLoop);
-                                markerInLoop=L.Marker.movingMarker([[data.Lat[j],data.Long[j]],[data.Lat[j+1],data.Long[j+1]]],
-                                    [7000],{icon:planegreenIcon,
-                                        rotationAngle:data.angles[j],
-
-                                    
-                                    }).addTo(map)
-                                    markerInLoop.bindPopup('Plane: '+data.name+'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore + '</br>' +'Threat Index: ' + data.threatIndex[i].toFixed(2));
-                                    markerInLoop.start();
-                                }
-                                if(data.threatIndex[j]>12 && data.threatIndex[j]<=20.5){
-                                map.removeLayer(markerInLoop);
-                                markerInLoop=L.Marker.movingMarker([[data.Lat[j],data.Long[j]],[data.Lat[j+1],data.Long[j+1]]],
-                                    [7000],{icon:planelightredIcon,
-                                        rotationAngle:data.angles[j],
-
-                                    
-                                    }).addTo(map);
-                                   markerInLoop.bindPopup('Plane: '+data.name +'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore + '</br>' +'Threat Index: ' + data.threatIndex[i].toFixed(2)).openPopup();
-                                   
-                                    markerInLoop.start();
-                                }
-                                if(data.threatIndex[j]>20.5){
-                                map.removeLayer(markerInLoop);
-                                markerInLoop=L.Marker.movingMarker([[data.Lat[j],data.Long[j]],[data.Lat[j+1],data.Long[j+1]]],
-                                    [7000],{icon:planeredIcon,
-                                        rotationAngle:data.angles[j],
-
-                                    
-                                    }).addTo(map);
-                                    markerInLoop.bindPopup('Plane: '+data.name +'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore + '</br>' +'Threat Index: ' + data.threatIndex[i].toFixed(2));
-                                   
-                                    markerInLoop.start();
-                                }
-                            }
-                            else if(j==data.Lat.length-2){
-                                map.removeLayer(markerInLoop);
-                            }
-                            if(newL1.length>0){
-
-                                if(newTi[k]>=0 && newTi[k]<=12){
-                                    map.removeLayer(newmarkerInLoop);
-                                    newmarkerInLoop=L.Marker.movingMarker([[newL1[k],newL2[k]],[newL1[k+1],newL2[k+1]]],
-                                        [7000],{icon:planegreenIcon,
-                                            rotationAngle:newAngle[k],
-
-                                        
-                                        }).addTo(map);
-                                    newmarkerInLoop.bindPopup('Plane: '+newname +'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS+ '</br>' +'Threat Index: ' + newTi[k].toFixed(2)).openPopup();
-                                   
-                                        newmarkerInLoop.start();
-                                    }
-                                if(newTi[k]>12 && newTi[k]<=20.5){
-                                    map.removeLayer(newmarkerInLoop);
-                                    newmarkerInLoop=L.Marker.movingMarker([[newL1[k],newL2[k]],[newL1[k+1],newL2[k+1]]],
-                                        [7000],{icon:planelightredIcon,
-                                            rotationAngle:newAngle[k],
-
-                                        
-                                        }).addTo(map);
-                                    newmarkerInLoop.bindPopup('Plane: '+newname +'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS+ '</br>' +'Threat Index: ' + newTi[k].toFixed(2));
-                                   
-                                        newmarkerInLoop.start();
-                                    }
-                                    if(newTi[k]>20.5 ){
-                                    map.removeLayer(newmarkerInLoop);
-                                    newmarkerInLoop=L.Marker.movingMarker([[newL1[k],newL2[k]],[newL1[k+1],newL2[k+1]]],
-                                        [7000],{icon:planeredIcon,
-                                            rotationAngle:newAngle[k],
-
-                                        
-                                        }).addTo(map);
-                                   
-                                    newmarkerInLoop.bindPopup('Plane: '+newname +'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS+ '</br>' +'Threat Index: ' + newTi[k].toFixed(2));
-                                   
-                                        newmarkerInLoop.start();
-                                    }
-                                    console.log("NewTi",newTi[k])
-                                    k+=1
-                                     if(k==newL1.length-2){
-                                        map.removeLayer(newmarkerInLoop);
-                                     }
-                          
-                            }
-                            if(j==3){
-                                $.ajax({
-                                    url: "{% url 'getSimulatorData' %}",
-                                    type: "GET",
-                                    success: function(data1) {
-                                        newL1=data1.Lat
-                                        newL2=data1.Long
-                                        newAngle=data1.angles
-                                        newTi=data1.threatIndex
-                                        newname=data1.name
-                                        newCW=data1.CarriedWeapon
-                                        newTS=data1.threatScore
-                                    }
-                                }
-                                )
-                                
-                            }
-                            console.log(i,"---",loopvalue);
-                            console.log(k,"---",loopvalue);
-                            
-                            j+=1
-                            
-                        }, 7000*i);
+                            }).addTo(map)
+                        markerInLoop.bindPopup('Plane: '+data.name+'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore + '</br>' +'Threat Index: ' + data.threatIndex[i].toFixed(2)).openPopup();
+                        markerInLoop.start();
                     }
                     
+                    if(data.threatIndex[j]>12 && data.threatIndex[j]<=20.5){
+                        map.removeLayer(markerInLoop);
+                        markerInLoop=L.Marker.movingMarker([[data.Lat[j],data.Long[j]],[data.Lat[j+1],data.Long[j+1]]],
+                            [7000],{icon:planelightredIcon,
+                                rotationAngle:data.angles[j],
+
+                            
+                            }).addTo(map);
+                        markerInLoop.bindPopup('Plane: '+data.name +'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore + '</br>' +'Threat Index: ' + data.threatIndex[i].toFixed(2));
+                        
+                        markerInLoop.start();
+                    }
+                    
+                    if(data.threatIndex[j]>20.5){
+                        map.removeLayer(markerInLoop);
+                        markerInLoop=L.Marker.movingMarker([[data.Lat[j],data.Long[j]],[data.Lat[j+1],data.Long[j+1]]],
+                            [7000],{icon:planeredIcon,
+                                rotationAngle:data.angles[j],
+
+                            
+                            }).addTo(map);
+                            markerInLoop.bindPopup('Plane: '+data.name +'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore + '</br>' +'Threat Index: ' + data.threatIndex[i].toFixed(2));
+                        
+                        markerInLoop.start();
+                    }
                 }
-            });
+                else if(j==data.Lat.length-2){ // If length of array containing Latitudes and Longitudes is going to end then remove makrer
+                    map.removeLayer(markerInLoop);
+                }
+                // If the second planes gets activated
+                if(newL1.length>0){
+
+                    if(newTi[k]>=0 && newTi[k]<=12){
+                        map.removeLayer(newmarkerInLoop);
+                        newmarkerInLoop=L.Marker.movingMarker([[newL1[k],newL2[k]],[newL1[k+1],newL2[k+1]]],
+                            [7000],{icon:planegreenIcon,
+                                rotationAngle:newAngle[k],
+
+                            
+                            }).addTo(map);
+                        newmarkerInLoop.bindPopup('Plane: '+newname +'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS+ '</br>' +'Threat Index: ' + newTi[k].toFixed(2))
+                        newmarkerInLoop.start();
+                    }
+                    
+                    if(newTi[k]>12 && newTi[k]<=20.5){
+                        map.removeLayer(newmarkerInLoop);
+                        newmarkerInLoop=L.Marker.movingMarker([[newL1[k],newL2[k]],[newL1[k+1],newL2[k+1]]],
+                            [7000],{icon:planelightredIcon,
+                                rotationAngle:newAngle[k],
+
+                            }).addTo(map);
+                        newmarkerInLoop.bindPopup('Plane: '+newname +'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS+ '</br>' +'Threat Index: ' + newTi[k].toFixed(2)).openPopup();
+                        newmarkerInLoop.start();
+                    }
+                    if(newTi[k]>20.5 ){
+                        map.removeLayer(newmarkerInLoop);
+                        newmarkerInLoop=L.Marker.movingMarker([[newL1[k],newL2[k]],[newL1[k+1],newL2[k+1]]],
+                            [7000],{icon:planeredIcon,
+                                rotationAngle:newAngle[k],
+
+                            }).addTo(map);
+                        
+                        newmarkerInLoop.bindPopup('Plane: '+newname +'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS+ '</br>' +'Threat Index: ' + newTi[k].toFixed(2));       
+                        newmarkerInLoop.start();
+                    }
+                    console.log("NewTi",newTi[k])
+                    k+=1
+                    if(k==newL1.length-2){
+                        map.removeLayer(newmarkerInLoop);
+                    }
+                
+                }
+                if(j==3){ // loop index reaches 3 another plane appears
+                    $.ajax({
+                        url: "{% url 'getSimulatorData' %}",
+                        type: "GET",
+                        success: function(data1) {
+                            newL1=data1.Lat
+                            newL2=data1.Long
+                            newAngle=data1.angles
+                            newTi=data1.threatIndex
+                            newname=data1.name
+                            newCW=data1.CarriedWeapon
+                            newTS=data1.threatScore
+                        }
+                    }
+                    )
+                    
+                }
+                console.log(i,"---",loopvalue);
+                console.log(k,"---",loopvalue);
+                
+                j+=1
+                
+            }, 7000*i);
+        }
+        
+    }
+});
 
 
 var overLayers= {
