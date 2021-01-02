@@ -1,0 +1,2640 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.AirDefencePak.com/TEWA"
+     xml:base="http://www.AirDefencePak.com/TEWA"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:TEWA="http://www.AirDefencePak.com/TEWA#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#">
+    <owl:Ontology rdf:about="http://www.AirDefencePak.com/TEWA">
+        <rdfs:comment>This is an ontology designed for Threat Evaluation and Weapon Assignment in Ground Based Air Defence Environment.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#AssignedTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.AirDefencePak.com/TEWA#AssignedTo">
+        <owl:inverseOf rdf:resource="http://www.AirDefencePak.com/TEWA#wasAssigned"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#CloseTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.AirDefencePak.com/TEWA#CloseTo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+        <rdfs:range rdf:resource="http://www.AirDefencePak.com/TEWA#DefendedAsset"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#hasCapability -->
+
+    <owl:ObjectProperty rdf:about="http://www.AirDefencePak.com/TEWA#hasCapability">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+        <rdfs:range rdf:resource="http://www.AirDefencePak.com/TEWA#Capability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#hasColour -->
+
+    <owl:ObjectProperty rdf:about="http://www.AirDefencePak.com/TEWA#hasColour">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#hasGeneration -->
+
+    <owl:ObjectProperty rdf:about="http://www.AirDefencePak.com/TEWA#hasGeneration">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+        <rdfs:range rdf:resource="http://www.AirDefencePak.com/TEWA#Generation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#hasIntent -->
+
+    <owl:ObjectProperty rdf:about="http://www.AirDefencePak.com/TEWA#hasIntent">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+        <rdfs:range rdf:resource="http://www.AirDefencePak.com/TEWA#Intent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#hasProximity -->
+
+    <owl:ObjectProperty rdf:about="http://www.AirDefencePak.com/TEWA#hasProximity">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+        <rdfs:range rdf:resource="http://www.AirDefencePak.com/TEWA#Proximity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#hasRedAlert -->
+
+    <owl:ObjectProperty rdf:about="http://www.AirDefencePak.com/TEWA#hasRedAlert">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.AirDefencePak.com/TEWA#DefendedAsset"/>
+        <rdfs:range rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#hasTerror -->
+
+    <owl:ObjectProperty rdf:about="http://www.AirDefencePak.com/TEWA#hasTerror">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+        <rdfs:range rdf:resource="http://www.AirDefencePak.com/TEWA#Terror"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#wasAssigned -->
+
+    <owl:ObjectProperty rdf:about="http://www.AirDefencePak.com/TEWA#wasAssigned">
+        <rdfs:domain rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+        <rdfs:range rdf:resource="http://www.AirDefencePak.com/TEWA#Weapon"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#AssignedTo"/>
+                <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Altitude -->
+
+    <owl:DatatypeProperty rdf:about="http://www.AirDefencePak.com/TEWA#Altitude">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Ammunition -->
+
+    <owl:DatatypeProperty rdf:about="http://www.AirDefencePak.com/TEWA#Ammunition">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Distance -->
+
+    <owl:DatatypeProperty rdf:about="http://www.AirDefencePak.com/TEWA#Distance">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#HeadingAngle -->
+
+    <owl:DatatypeProperty rdf:about="http://www.AirDefencePak.com/TEWA#HeadingAngle">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#ID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.AirDefencePak.com/TEWA#ID"/>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Latitude -->
+
+    <owl:DatatypeProperty rdf:about="http://www.AirDefencePak.com/TEWA#Latitude">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Longtitude -->
+
+    <owl:DatatypeProperty rdf:about="http://www.AirDefencePak.com/TEWA#Longtitude">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#ManufacturingYear -->
+
+    <owl:DatatypeProperty rdf:about="http://www.AirDefencePak.com/TEWA#ManufacturingYear">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#MaxRange -->
+
+    <owl:DatatypeProperty rdf:about="http://www.AirDefencePak.com/TEWA#MaxRange"/>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Range -->
+
+    <owl:DatatypeProperty rdf:about="http://www.AirDefencePak.com/TEWA#Range">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Speed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.AirDefencePak.com/TEWA#Speed">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#ThreatScore -->
+
+    <owl:DatatypeProperty rdf:about="http://www.AirDefencePak.com/TEWA#ThreatScore"/>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Vitality -->
+
+    <owl:DatatypeProperty rdf:about="http://www.AirDefencePak.com/TEWA#Vitality">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Anza-Missile -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#Anza-Missile">
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Missile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Capability -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#Capability">
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#Generation"/>
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#HighLevel"/>
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#Intent"/>
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#Proximity"/>
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Close -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#Close">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Proximity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Distance"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">300</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#Far"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Colour -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#Colour">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Green"/>
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#LightRed"/>
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Red"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Green"/>
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#LightRed"/>
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Red"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#DefendedAsset -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#DefendedAsset">
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#Weapon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#F-35 -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#F-35">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#wasAssigned"/>
+                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#Anza-Missile"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Far -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#Far">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Proximity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Distance"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">300</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Proximity"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Proximity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Distance"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">300</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Distance"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">300</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#FirstGen -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#FirstGen">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Generation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#ManufacturingYear"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedLong"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedLong">2010</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#FirstGenrationThreat -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#FirstGenrationThreat">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasGeneration"/>
+                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#FirstGen"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#GDF-Gun -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#GDF-Gun">
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Gun"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Generation -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#Generation"/>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Gun -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#Gun">
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Weapon"/>
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#Missile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#HighCapability -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#HighCapability">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Capability"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Ammunition"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Speed"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">800</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#LowCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#HighCapabilityThreat -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#HighCapabilityThreat">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasCapability"/>
+                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#HighCapability"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#HighIntent -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#HighIntent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Intent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Altitude"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">900</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#LowIntent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#HighIntentThreat -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#HighIntentThreat">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasIntent"/>
+                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#HighIntent"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#HighLevel -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#HighLevel">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Terror"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasCapability"/>
+                                <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#HighCapability"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasIntent"/>
+                                <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#HighIntent"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasProximity"/>
+                                <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#Close"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#ThreatScore"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">20</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#LowLevel"/>
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#MediumLevel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#HighLevelThreat -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#HighLevelThreat">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasTerror"/>
+                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#HighLevel"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#HighProximityThreat -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#HighProximityThreat">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasProximity"/>
+                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#Close"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Intent -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#Intent">
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#JF-17 -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#JF-17">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#wasAssigned"/>
+                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#GDF-Gun"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#LowCapability -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#LowCapability">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Capability"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Ammunition"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Speed"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">100</xsd:minExclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">800</xsd:maxExclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                </owl:intersectionOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#LowCapabilityThreat -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#LowCapabilityThreat">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasCapability"/>
+                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#LowCapability"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#LowIntent -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#LowIntent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Intent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Altitude"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">900</xsd:minExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#LowIntentThreat -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#LowIntentThreat">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasIntent"/>
+                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#LowIntent"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#LowLevel -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#LowLevel">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Terror"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasCapability"/>
+                                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#LowCapability"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasProximity"/>
+                                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#Far"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasIntent"/>
+                                <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#LowIntent"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#ThreatScore"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">12</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#MediumLevel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#LowLevelThreat -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#LowLevelThreat">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasTerror"/>
+                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#LowLevel"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#LowProximityThreat -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#LowProximityThreat">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasProximity"/>
+                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#Far"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasProximity"/>
+                <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#Far"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#MIG-21 -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#MIG-21">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#wasAssigned"/>
+                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#TYPE58-Gun"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#MediumLevel -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#MediumLevel">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Terror"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasCapability"/>
+                                <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#HighCapability"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasIntent"/>
+                                <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#HighIntent"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasProximity"/>
+                                <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#Close"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#ThreatScore"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">12</xsd:minExclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">20</xsd:maxExclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                </owl:intersectionOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#MediumLevelThreat -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#MediumLevelThreat">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasTerror"/>
+                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#MediumLevel"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Mirage -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#Mirage">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#wasAssigned"/>
+                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#TYPE85-Gun"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Missile -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#Missile">
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Weapon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Proximity -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#Proximity">
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#SecondGen -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#SecondGen">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Generation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#ManufacturingYear"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedLong"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedLong">2010</xsd:minExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#SecondGenerationThreat -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#SecondGenerationThreat">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasGeneration"/>
+                        <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#SecondGen"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#TYPE58-Gun -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#TYPE58-Gun">
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Gun"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#TYPE85-Gun -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#TYPE85-Gun">
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Gun"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Terror -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#Terror"/>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Threat -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#Threat">
+        <owl:disjointWith rdf:resource="http://www.AirDefencePak.com/TEWA#Weapon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Weapon -->
+
+    <owl:Class rdf:about="http://www.AirDefencePak.com/TEWA#Weapon"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#AnzaMissile -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#AnzaMissile">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Anza-Missile"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#C1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#C1">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Capability"/>
+        <TEWA:Ammunition rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</TEWA:Ammunition>
+        <TEWA:Speed rdf:datatype="http://www.w3.org/2001/XMLSchema#int">500</TEWA:Speed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#C2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#C2">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Capability"/>
+        <TEWA:Ammunition rdf:datatype="http://www.w3.org/2001/XMLSchema#int">22</TEWA:Ammunition>
+        <TEWA:Speed rdf:datatype="http://www.w3.org/2001/XMLSchema#long">1600</TEWA:Speed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#C3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#C3">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Capability"/>
+        <TEWA:Ammunition rdf:datatype="http://www.w3.org/2001/XMLSchema#int">20</TEWA:Ammunition>
+        <TEWA:Speed rdf:datatype="http://www.w3.org/2001/XMLSchema#long">1000</TEWA:Speed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#C4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#C4">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Capability"/>
+        <TEWA:Ammunition rdf:datatype="http://www.w3.org/2001/XMLSchema#int">0</TEWA:Ammunition>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#F1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#F1">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+        <TEWA:hasGeneration rdf:resource="http://www.AirDefencePak.com/TEWA#G1"/>
+        <TEWA:hasTerror rdf:resource="http://www.AirDefencePak.com/TEWA#T1"/>
+        <TEWA:wasAssigned rdf:resource="http://www.AirDefencePak.com/TEWA#AnzaMissile"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#F2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#F2">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+        <TEWA:hasIntent rdf:resource="http://www.AirDefencePak.com/TEWA#I2"/>
+        <TEWA:wasAssigned rdf:resource="http://www.AirDefencePak.com/TEWA#AnzaMissile"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#G1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#G1">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Generation"/>
+        <TEWA:ManufacturingYear rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedLong">2015</TEWA:ManufacturingYear>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#G2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#G2">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Generation"/>
+        <TEWA:ManufacturingYear rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedLong">1999</TEWA:ManufacturingYear>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#G3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#G3">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Generation"/>
+        <TEWA:ManufacturingYear rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedLong">2003</TEWA:ManufacturingYear>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Green -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#Green">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Colour"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Green"/>
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#LightRed"/>
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Red"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Gun1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#Gun1">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#TYPE85-Gun"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Gun2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#Gun2">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#TYPE58-Gun"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Gun3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#Gun3">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#GDF-Gun"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#I1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#I1">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Intent"/>
+        <TEWA:Altitude rdf:datatype="http://www.w3.org/2001/XMLSchema#long">700</TEWA:Altitude>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#I2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#I2">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Intent"/>
+        <TEWA:Altitude rdf:datatype="http://www.w3.org/2001/XMLSchema#long">5500</TEWA:Altitude>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#I3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#I3">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Intent"/>
+        <TEWA:Altitude rdf:datatype="http://www.w3.org/2001/XMLSchema#long">1200</TEWA:Altitude>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#I4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#I4">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Intent"/>
+        <TEWA:Altitude rdf:datatype="http://www.w3.org/2001/XMLSchema#long">1700</TEWA:Altitude>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#LightRed -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#LightRed">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Colour"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Green"/>
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#LightRed"/>
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Red"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#M1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#M1">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+        <TEWA:CloseTo rdf:resource="http://www.AirDefencePak.com/TEWA#PMA"/>
+        <TEWA:hasCapability rdf:resource="http://www.AirDefencePak.com/TEWA#C3"/>
+        <TEWA:hasIntent rdf:resource="http://www.AirDefencePak.com/TEWA#I1"/>
+        <TEWA:hasProximity rdf:resource="http://www.AirDefencePak.com/TEWA#P1"/>
+        <TEWA:hasTerror rdf:resource="http://www.AirDefencePak.com/TEWA#T2"/>
+        <TEWA:wasAssigned rdf:resource="http://www.AirDefencePak.com/TEWA#Gun1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#M2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#M2">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+        <TEWA:hasCapability rdf:resource="http://www.AirDefencePak.com/TEWA#C4"/>
+        <TEWA:wasAssigned rdf:resource="http://www.AirDefencePak.com/TEWA#Gun1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#M3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#M3">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+        <TEWA:hasIntent rdf:resource="http://www.AirDefencePak.com/TEWA#I3"/>
+        <TEWA:hasProximity rdf:resource="http://www.AirDefencePak.com/TEWA#P2"/>
+        <TEWA:hasTerror rdf:resource="http://www.AirDefencePak.com/TEWA#T3"/>
+        <TEWA:wasAssigned rdf:resource="http://www.AirDefencePak.com/TEWA#Gun1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#MIG1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#MIG1">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+        <TEWA:hasCapability rdf:resource="http://www.AirDefencePak.com/TEWA#C1"/>
+        <TEWA:hasIntent rdf:resource="http://www.AirDefencePak.com/TEWA#I4"/>
+        <TEWA:hasTerror rdf:resource="http://www.AirDefencePak.com/TEWA#T5"/>
+        <TEWA:wasAssigned rdf:resource="http://www.AirDefencePak.com/TEWA#Gun2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#MIG2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#MIG2">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+        <TEWA:hasCapability rdf:resource="http://www.AirDefencePak.com/TEWA#C3"/>
+        <TEWA:hasGeneration rdf:resource="http://www.AirDefencePak.com/TEWA#G3"/>
+        <TEWA:hasProximity rdf:resource="http://www.AirDefencePak.com/TEWA#P2"/>
+        <TEWA:hasTerror rdf:resource="http://www.AirDefencePak.com/TEWA#T4"/>
+        <TEWA:wasAssigned rdf:resource="http://www.AirDefencePak.com/TEWA#Gun2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#P1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#P1">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Proximity"/>
+        <TEWA:Distance rdf:datatype="http://www.w3.org/2001/XMLSchema#long">200</TEWA:Distance>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#P2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#P2">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Proximity"/>
+        <TEWA:Distance rdf:datatype="http://www.w3.org/2001/XMLSchema#long">900</TEWA:Distance>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#PMA -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#PMA">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#DefendedAsset"/>
+        <TEWA:Vitality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">15</TEWA:Vitality>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#Red -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#Red">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Colour"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Green"/>
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#LightRed"/>
+                    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Red"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#T1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#T1">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Terror"/>
+        <TEWA:hasCapability rdf:resource="http://www.AirDefencePak.com/TEWA#C2"/>
+        <TEWA:hasIntent rdf:resource="http://www.AirDefencePak.com/TEWA#I1"/>
+        <TEWA:hasProximity rdf:resource="http://www.AirDefencePak.com/TEWA#P1"/>
+        <TEWA:ThreatScore rdf:datatype="http://www.w3.org/2001/XMLSchema#int">26</TEWA:ThreatScore>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#T2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#T2">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Terror"/>
+        <TEWA:hasCapability rdf:resource="http://www.AirDefencePak.com/TEWA#C3"/>
+        <TEWA:hasIntent rdf:resource="http://www.AirDefencePak.com/TEWA#I1"/>
+        <TEWA:hasProximity rdf:resource="http://www.AirDefencePak.com/TEWA#P1"/>
+        <TEWA:ThreatScore rdf:datatype="http://www.w3.org/2001/XMLSchema#long">29</TEWA:ThreatScore>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#T3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#T3">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Terror"/>
+        <TEWA:hasIntent rdf:resource="http://www.AirDefencePak.com/TEWA#I3"/>
+        <TEWA:hasProximity rdf:resource="http://www.AirDefencePak.com/TEWA#P2"/>
+        <TEWA:ThreatScore rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7</TEWA:ThreatScore>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#T4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#T4">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Terror"/>
+        <TEWA:hasCapability rdf:resource="http://www.AirDefencePak.com/TEWA#C3"/>
+        <TEWA:ThreatScore rdf:datatype="http://www.w3.org/2001/XMLSchema#int">15</TEWA:ThreatScore>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.AirDefencePak.com/TEWA#T5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.AirDefencePak.com/TEWA#T5">
+        <rdf:type rdf:resource="http://www.AirDefencePak.com/TEWA#Terror"/>
+        <TEWA:hasCapability rdf:resource="http://www.AirDefencePak.com/TEWA#C1"/>
+        <TEWA:hasIntent rdf:resource="http://www.AirDefencePak.com/TEWA#I3"/>
+        <TEWA:hasProximity rdf:resource="http://www.AirDefencePak.com/TEWA#P2"/>
+        <TEWA:ThreatScore rdf:datatype="http://www.w3.org/2001/XMLSchema#long">4</TEWA:ThreatScore>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Capability"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Ammunition"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Speed"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">800</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Capability"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Capability"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Ammunition"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Speed"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">800</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Ammunition"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Capability"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Ammunition"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Speed"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">800</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Speed"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">800</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Capability"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Ammunition"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</xsd:maxExclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Speed"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">100</xsd:minExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">800</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:intersectionOf>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Capability"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Capability"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Ammunition"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</xsd:maxExclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Speed"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">100</xsd:minExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">800</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:intersectionOf>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Ammunition"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</xsd:maxExclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Capability"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Ammunition"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</xsd:maxExclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Speed"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">100</xsd:minExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">800</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:intersectionOf>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Speed"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">100</xsd:minExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">800</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:intersectionOf>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Generation"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#ManufacturingYear"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedLong"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedLong">2010</xsd:minExclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Generation"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Generation"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#ManufacturingYear"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedLong"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedLong">2010</xsd:minExclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#ManufacturingYear"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedLong"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedLong">2010</xsd:minExclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Generation"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#ManufacturingYear"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedLong"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedLong">2010</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#FirstGen"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Generation"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#ManufacturingYear"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedLong"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedLong">2010</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Generation"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Generation"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#ManufacturingYear"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedLong"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedLong">2010</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#ManufacturingYear"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedLong"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedLong">2010</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Intent"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Altitude"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">900</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Intent"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Intent"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Altitude"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">900</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Altitude"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">900</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Intent"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Altitude"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">900</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Intent"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Intent"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Altitude"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">900</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Altitude"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">900</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Proximity"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Distance"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">300</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Far"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Proximity"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Distance"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">300</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Proximity"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Proximity"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Distance"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">300</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Distance"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">300</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Proximity"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Distance"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">300</xsd:maxExclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Proximity"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Proximity"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Distance"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">300</xsd:maxExclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#Distance"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#long">300</xsd:maxExclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasProximity"/>
+                <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#Far"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#LowProximityThreat"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasProximity"/>
+                <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#Far"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Threat"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasProximity"/>
+                <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#Far"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.AirDefencePak.com/TEWA#hasProximity"/>
+                <owl:someValuesFrom rdf:resource="http://www.AirDefencePak.com/TEWA#Far"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Green"/>
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#LightRed"/>
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#Red"/>
+        </owl:oneOf>
+        <rdfs:subClassOf rdf:resource="http://www.AirDefencePak.com/TEWA#Colour"/>
+    </owl:Class>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#GDF-Gun"/>
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#TYPE58-Gun"/>
+            <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#TYPE85-Gun"/>
+        </owl:members>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="#t">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#c">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#amm">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#i">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#a">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.AirDefencePak.com/TEWA#t">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#d">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#v">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+                        <swrl:argument1 rdf:resource="#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#Capability"/>
+                                <swrl:argument1 rdf:resource="#c"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#hasCapability"/>
+                                        <swrl:argument1 rdf:resource="#t"/>
+                                        <swrl:argument2 rdf:resource="#c"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#Ammunition"/>
+                                                <swrl:argument1 rdf:resource="#c"/>
+                                                <swrl:argument2 rdf:resource="#amm"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                                        <swrl:arguments>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:resource="#amm"/>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">0</rdf:first>
+                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </swrl:arguments>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#LowLevelThreat"/>
+                        <swrl:argument1 rdf:resource="#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S2</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+                        <swrl:argument1 rdf:resource="#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#HighLevelThreat"/>
+                                <swrl:argument1 rdf:resource="#t"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#hasColour"/>
+                        <swrl:argument1 rdf:resource="#t"/>
+                        <swrl:argument2 rdf:resource="http://www.AirDefencePak.com/TEWA#Red"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S6</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+                        <swrl:argument1 rdf:resource="#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#hasIntent"/>
+                                <swrl:argument1 rdf:resource="#t"/>
+                                <swrl:argument2 rdf:resource="#i"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#Intent"/>
+                                        <swrl:argument1 rdf:resource="#i"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#Altitude"/>
+                                                <swrl:argument1 rdf:resource="#i"/>
+                                                <swrl:argument2 rdf:resource="#a"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                                        <swrl:arguments>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:resource="#a"/>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#long">5000</rdf:first>
+                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </swrl:arguments>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#LowLevelThreat"/>
+                        <swrl:argument1 rdf:resource="#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S4</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+                        <swrl:argument1 rdf:resource="#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#LowLevelThreat"/>
+                                <swrl:argument1 rdf:resource="#t"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#hasColour"/>
+                        <swrl:argument1 rdf:resource="#t"/>
+                        <swrl:argument2 rdf:resource="http://www.AirDefencePak.com/TEWA#Green"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S3</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+                        <swrl:argument1 rdf:resource="http://www.AirDefencePak.com/TEWA#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#MediumLevelThreat"/>
+                                <swrl:argument1 rdf:resource="http://www.AirDefencePak.com/TEWA#t"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#hasColour"/>
+                        <swrl:argument1 rdf:resource="http://www.AirDefencePak.com/TEWA#t"/>
+                        <swrl:argument2 rdf:resource="http://www.AirDefencePak.com/TEWA#LightRed"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S5</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#Threat"/>
+                        <swrl:argument1 rdf:resource="#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#CloseTo"/>
+                                <swrl:argument1 rdf:resource="#t"/>
+                                <swrl:argument2 rdf:resource="#d"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#Vitality"/>
+                                        <swrl:argument1 rdf:resource="#d"/>
+                                        <swrl:argument2 rdf:resource="#v"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="#v"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">12</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.AirDefencePak.com/TEWA#hasRedAlert"/>
+                        <swrl:argument1 rdf:resource="#d"/>
+                        <swrl:argument2 rdf:resource="#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
