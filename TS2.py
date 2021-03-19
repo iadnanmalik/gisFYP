@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Nov 29 21:59:47 2020
 
-@author: Rawan
-"""
 import random
 import time
 import math
@@ -36,10 +31,6 @@ class Threat:
 
 def threatgeneration():
 
-     ID = ['1001','1002','1003','1101','3002','3003''4002','4003']
-     name=['Cargo','Bomber','MIG-21','MIG-25','F-15','F-16','MIG-19','MIG-23']
-     model=['2001','2002','2003','2005','2006','2007','2014','2010']
-     typ=['Rotorcraft','FixedWing','JetCraft','PropellerCraft']
      lat=[27.4888,30.3222,31.2555,33.10,36.40]  #lat
      lon=[71.8666,69.8888,74.1999,73.74,69.93] #lon
      ID1=ThreatValue.objects.values('id')
@@ -47,10 +38,10 @@ def threatgeneration():
      model1=ThreatValue.objects.values('model')
      typ1=ThreatValue.objects.values('typ')
      name1list=[]
-     rangee=random.randrange(300,700,50)
+     rangee=random.randrange(1000,4000,50)
      angle=random.randint(0,360)
      threatscore =random.randint(1,7)
-     speed=random.randint(300,500)
+     speed=random.randint(1700,2000)
      ammuniation=random.randint(1,10)
      for names in name1: 
         #print (key, value) 
@@ -92,6 +83,8 @@ def threatgeneration():
      altitude=random.randint(1000,5000)
      new=Threat(threatid,namee,mod,typee,threatscore,speed,l2,l1,rangee,angle,ammuniation,altitude)
      return new
+
+
 def simulation():
     threat=threatgeneration()
     l1=threat.longitude
@@ -102,7 +95,8 @@ def simulation():
     longitude=[]
     angles=[]
     #speed=random.randint(350,450)
-    distance =threat.speed/7
+    kmpersecond=threat.speed/3600
+    distance =kmpersecond/7
         
     for i in range (0,10):
         lon1=l1*(math.pi/180)
@@ -126,7 +120,7 @@ def simulation():
         angles.append(angle)
 
         angle+=10
-    return latitude,longitude,angles,threat.threatscore,threat.ID,threat.speed,threat.ammuniation,threat.altitude,threat.name
+    return latitude,longitude,angles,threat.threatscore,threat.ID,threat.speed,threat.ammuniation,threat.altitude,threat.name, threat.maxrange
 def main():
     t=1
     threat=threatgeneration()
