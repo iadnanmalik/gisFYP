@@ -34,7 +34,7 @@ long1 =73.0479
 lat2=31.5204 
 long2=74.3587
 alt1=4000
-print("The Flying Distane between Lahore & Islamabad is :",HaversineDistance(long1,lat1,long2,lat2,alt1),"KMs")
+##print("The Flying Distane between Lahore & Islamabad is :",HaversineDistance(long1,lat1,long2,lat2,alt1),"KMs")
 
 
 # ## Distance incorporating latitude
@@ -66,7 +66,7 @@ class ThreatAirCraft:
         self.ThreatScore=tS
         self.CarriedWeapon=CW
     def GetAircraftData(self):
-      '''  print("--------AIRCRAFT--------\nID:"
+      '''  #print("--------AIRCRAFT--------\nID:"
              ,self.AirCraftID
             ,"\nUser Defined Name:",self.AirCraftName
             ,"\nType:",self.AirCraftType
@@ -111,7 +111,7 @@ class DefendedAsset:
         self.Vitality=vital
         
    # def GetDefendedAssetData(self):
-        #print("-----Defended Asset-----\nID:",self.DefendedAssetID,"\nDefendedAsset:",self.DefendedAsset,
+        ##print("-----Defended Asset-----\nID:",self.DefendedAssetID,"\nDefendedAsset:",self.DefendedAsset,
          #     "\nLatitude:",self.latitude,"\nLongtitude:",self.lontitude,"\nVitality:",self.Vitality
           #    )
         
@@ -145,7 +145,7 @@ def ThreatEvaluationBetweenSingleThreatSingleDefendedAsset(DA1,T1):
     
     #distance between the DA and the Aircraft
     s=HaversineDistance(DA1.lontitude, DA1.latitude, T1.longtitude, T1.latitude,T1.altitude) #Kms
-    #print("distance",s)
+    ##print("distance",s)
     #Velocity of the Aircraft
     #KEEP EVEYTHING IN KMs
     v=T1.Velocity
@@ -155,9 +155,9 @@ def ThreatEvaluationBetweenSingleThreatSingleDefendedAsset(DA1,T1):
     
     #### division by zero dekhnay ke zarurat ha ####
     
-    #print("time",t)
+    ##print("time",t)
     #*3600 #seconds
-    #print("Time Left :",t*360)
+    ##print("Time Left :",t*360)
     #calculating threat index
     if T1.CarriedWeapon<=0:
         TIndex=0
@@ -232,7 +232,7 @@ ThreatEvaluation(DefendedAssetsContainer,ThreatsContainer)
 #low kam height pa
 #moderate darmeani height pa
 
-#print(ThreatEvaluation(DefendedAssetsContainer,ThreatsContainer))
+##print(ThreatEvaluation(DefendedAssetsContainer,ThreatsContainer))
 #0 wo threat ha jis k pas weapon he nae
 #high means height pa ha
 #low kam height pa
@@ -243,11 +243,11 @@ def getThreatIndex(lat,lon,threatscore,threatid,threatspeed,ammunition,altitude)
     #1221,"Titan1","Interceptor",2011,10000,5000,11.5204,94.3587,1,0
     threatindex=[]
     tind=ThreatEvaluation(DefendedAssetsContainer,threat)
-    #print(tind)
+    ##print(tind)
     for key, value in tind.items(): 
-        #print (key, value) 
+        ##print (key, value) 
         threatindex.append(value)
-        #print("\n")
+        ##print("\n")
     
     nthreatindex=[]
     return threatindex
@@ -289,7 +289,7 @@ long1 =73.0479
 lat2=31.5204 
 long2=74.3587
 alt1=4000
-print("The Flying Distane between Lahore & Islamabad is :",HaversineDistance(long1,lat1,long2,lat2,alt1),"KMs")
+#print("The Flying Distane between Lahore & Islamabad is :",HaversineDistance(long1,lat1,long2,lat2,alt1),"KMs")
 
 
 
@@ -367,15 +367,16 @@ class DefendedAsset:
         self.Vitality=vital
         
     def GetDefendedAssetData(self):
-        print("-----Defended Asset-----\nID:",self.DefendedAssetID,"\nDefendedAsset:",self.DefendedAsset,
-              "\nLatitude:",self.latitude,"\nLongtitude:",self.lontitude,"\nVitality:",self.Vitality
-              )
+        print(" ")
+        #print("-----Defended Asset-----\nID:",self.DefendedAssetID,"\nDefendedAsset:",self.DefendedAsset,
+           #   "\nLatitude:",self.latitude,"\nLongtitude:",self.lontitude,"\nVitality:",self.Vitality
+            #  )
         
-DA1=DefendedAsset(112231,"Sargodha Base",32.0455,72.6716,3)
-DA2=DefendedAsset(112232,"GHQ",33.6260,73.0714,4)
-DA3=DefendedAsset(112233,"PMA",34.1887,73.2633,5)
-DA4=DefendedAsset(112234,"Naval Base",24.8400,66.9742,6)
-DA5=DefendedAsset(112235,"Chashma Nuclear Complex",32.3874,71.4685,7)
+DA1=DefendedAsset(112231,"Sargodha Base",28.959660, 63.411098,6)
+DA2=DefendedAsset(112232,"GHQ",28.967538, 64.645676,8)
+DA3=DefendedAsset(112233,"PMA",29.339287, 64.392563,10)
+DA4=DefendedAsset(112234,"Naval Base",28.581572, 62.761875,12)
+DA5=DefendedAsset(112235,"Chashma Nuclear Complex",29.365385, 61.573407,14)
 DefendedAssetsContainer=[DA1,DA2,DA3,DA4,DA5]
 
 #for i in range(5):
@@ -401,19 +402,19 @@ def ThreatEvaluationBetweenSingleThreatSingleDefendedAsset(DA1,T1):
     
     #distance between the DA and the Aircraft
     s=HaversineDistance(DA1.lontitude, DA1.latitude, T1.longtitude, T1.latitude,T1.altitude) #Kms
-    #print("distance",s)
+    ##print("distance",s)
     #Velocity of the Aircraft
     #KEEP EVEYTHING IN KMs
     v=T1.Velocity
     
     #time in reaching to a certain destination
     t= (s/v) # time is in hours since velocity is in km/h
-    print("Time= ",t)
+    #print("Time= ",t)
     #### division by zero dekhnay ke zarurat ha ####
 
-    #print("time",t)
+    ##print("time",t)
     #*3600 #seconds
-    #print("Time Left :",t*360)
+    ##print("Time Left :",t*360)
     #calculating threat index
     TIndex=0
     if T1.CarriedWeapon<=0:
@@ -425,13 +426,13 @@ def ThreatEvaluationBetweenSingleThreatSingleDefendedAsset(DA1,T1):
             TindexMaxAssumed=((10+10+4500+10)/maxV)
             
 
-            TIndex =  (((T1.CarriedWeapon)+(T1.ThreatScore)  +(T1.Range)+(DA1.Vitality) )/(t/2))
+            TIndex =  (((T1.CarriedWeapon/10)+(T1.ThreatScore/7)  +(T1.Range/4000)+(DA1.Vitality/7) )/(t/2))
             #TIndex =  (((T1.CarriedWeapon)+(T1.ThreatScore) + (DA1.Vitality) ))
             #TIndex =  (((T1.CarriedWeapon) + (DA1.Vitality) )/(2*t))
             import math 
-            # Printing the log base 2 of TI 
+            # #printing the log base 2 of TI 
             TIndex=math.log(TIndex,2)
-            #print("Max TI | ",TIndex)
+            ##print("Max TI | ",TIndex)
            
         except:
             print("Yahan pa max value daal dayn gay ")
@@ -453,8 +454,8 @@ def ThreatEvaluationBetweenSingleThreatSingleDefendedAsset(DA1,T1):
     return ThreatAndAsset,TIndex
     
 #ThreatEvaluationBetweenSingleThreatSingleDefendedAsset(DA1,T1)
-#print("Ammunition =",T1.CarriedWeapon,"| Terror Of Threat =",T1.ThreatScore,"| DA Vitality =",DA1.Vitality)
-#print("Threat Index =",ThreatEvaluationBetweenSingleThreatSingleDefendedAsset(DA1,T1))
+##print("Ammunition =",T1.CarriedWeapon,"| Terror Of Threat =",T1.ThreatScore,"| DA Vitality =",DA1.Vitality)
+##print("Threat Index =",ThreatEvaluationBetweenSingleThreatSingleDefendedAsset(DA1,T1))
 
 
 
@@ -497,24 +498,24 @@ def ThreatEvaluation(DefendedAssets,EncounteredThreats):
     return DefendedAssetAndThreatIndex
     
 
-#print(ThreatEvaluation(DefendedAssetsContainer,ThreatsContainer),'\n')
-#print(ThreatsContainer[0].GetAircraftData())
+##print(ThreatEvaluation(DefendedAssetsContainer,ThreatsContainer),'\n')
+##print(ThreatsContainer[0].GetAircraftData())
     
 def getThreatIndex(lat,lon,threatscore,threatid,threatspeed,ammunition,altitude,rangee):
     threatindex=[]
 
-    print("------------------------Range-----------------------------")
-    print(rangee)
+    #print("------------------------Range-----------------------------")
+    #print(rangee)
     threat=ThreatAirCraft(threatid,"Titan1","Interceptor",2011,threatspeed,altitude,lat,lon,threatscore,ammunition,rangee)
-    print(threat.GetAircraftData())   
+    #print(threat.GetAircraftData())   
     #1221,"Titan1","Interceptor",2011,10000,5000,11.5204,94.3587,1,0
     tind=ThreatEvaluation(DefendedAssetsContainer,threat)
-    #print(tind)
+    ##print(tind)
     for key, value in tind.items(): 
-        print (key, value) 
+        #print (key, value) 
         threatindex.append(value)
-        #print("\n")
-    print("TIndex ",threatindex) 
+        ##print("\n")
+    #print("TIndex ",threatindex) 
     return threatindex
 
 

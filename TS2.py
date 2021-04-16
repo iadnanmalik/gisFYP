@@ -2,6 +2,8 @@
 import random
 import time
 import math
+from math import radians, cos, sin, asin, sqrt
+
 from gisapp.models import ThreatValue
 radius= 6378.1
 
@@ -30,9 +32,11 @@ class Threat:
         return str(self)
 
 def threatgeneration():
+  #lat
+     lat=[29.83749580383312,29.743312835693473,28.044531,28.286666, 27.88588905334484]
+#lon
 
-     lat=[27.4888,30.3222,31.2555,33.10,36.40]  #lat
-     lon=[71.8666,69.8888,74.1999,73.74,69.93] #lon
+     lon=[60.89943695068354,65.87509918212902, 63.906401,64.807280,62.802379608154354]
      ID1=ThreatValue.objects.values('id')
      name1=ThreatValue.objects.values('name')
      model1=ThreatValue.objects.values('model')
@@ -47,26 +51,26 @@ def threatgeneration():
         #print (key, value) 
         name1list.append(names['name'])
         #print("\n")
-     print(name1list)
+     #print(name1list)
      ID1list=[]
-     print(ID1)
+     #print(ID1)
      for ids in ID1: 
-        #print (key, value) 
+        ##print (key, value) 
         ID1list.append(ids['id'])
-        #print("\n")
-     print(ID1list)
+        ##print("\n")
+     #print(ID1list)
      model1list=[]
      for models in model1: 
-        #print (key, value) 
+        ##print (key, value) 
         model1list.append(models['model'])
-        #print("\n")
-     print(model1list)
+        ##print("\n")
+     #print(model1list)
      typ1list=[]
      for typs in typ1: 
-        #print (key, value) 
+        ##print (key, value) 
         typ1list.append(typs['typ'])
-        #print("\n")
-     print(typ1list)
+        ##print("\n")
+     #print(typ1list)
      ID=ID1list
      name=name1list
      model=model1list
@@ -80,6 +84,8 @@ def threatgeneration():
      index=random.randint(0,4)
      l1=lon[index]
      l2=lat[index]
+     anglearray=[70,220,10,290,45]
+     angle=anglearray[index]
      altitude=random.randint(1000,5000)
      new=Threat(threatid,namee,mod,typee,threatscore,speed,l2,l1,rangee,angle,ammuniation,altitude)
      return new
@@ -95,8 +101,8 @@ def simulation():
     longitude=[]
     angles=[]
     #speed=random.randint(350,450)
-    kmpersecond=threat.speed/3600
-    distance =kmpersecond/7
+    kmpersecond=threat.speed/15
+    distance =kmpersecond/3
         
     for i in range (0,10):
         lon1=l1*(math.pi/180)
@@ -112,19 +118,115 @@ def simulation():
         l2=llat
         ang= angrad * (180/math.pi)  #angle in degree
         
-        print("longitude:",llon)
-        print("latitude:",llat)
-        print("angle:",ang)
+        #print("longitude:",llon)
+        #print("latitude:",llat)
+        #print("angle:",ang)
         latitude.append(llat)
         longitude.append(llon)
         angles.append(angle)
 
         angle+=10
     return latitude,longitude,angles,threat.threatscore,threat.ID,threat.speed,threat.ammuniation,threat.altitude,threat.name, threat.maxrange
+class Weapon:
+
+    def __init__(self, WID,wname,alt,wspeed,lat,lon,rangee,wangle,trav,wammuniation,ammshot,deptime,wstatus,previousperformance,wfamiliarity):
+        self.WID =WID
+        self.wname = wname
+        self.waltitude=alt
+        self.wspeed = wspeed
+        self.wlatitude = lat
+        self.wlongitude = lon
+        self.wmaxrange= rangee
+        self.wangle=wangle
+        self.wtraverse=trav
+        self.wammuniation= wammuniation
+        self.wammuniationshot=ammshot
+        self.wdeploytime=deptime
+        self.wstatus=wstatus
+        self.wpreviousperformance= previousperformance
+        self.wfamiliarity= wfamiliarity
+    def __str__(self):
+        return " WeaponWID: '{}' | Weaponwname: '{}'  | waltitude : {} m | Muzzle Velocity: {} km/s | wlatitude: {} | wlongitude: {} | wmaxrange: {} km | Elevationwangle: {} degrees |wtraversewangle: {} degrees |Carriedwammuniation: {} | RateofFire: {} | DeploymentTime: {} secs | Weaponwstatus: {}  \n"            .format(self.WID, self.wname,self.waltitude, self.wspeed,self.wlatitude,self.wlongitude,self.wmaxrange,self.wangle,self.wtraverse,self.wammuniation,self.wammuniationshot,self.wdeploytime,self.wstatus)
+
+    def __repr__(self):
+        return str(self)
+
+def weapongeneration(index):
+    
+    WID = ['001','002','003','004','005','006','007']
+    wname=['W1','W2','W3','W4','W5','W6','W7']
+    #lat=[32.0456,32.0466,33.6261,33.6271,34.1888,34.1897,24.8401,24.8411,32.3875,32.3885]  #wlatitude of fire # Place alongside defended assests
+    #lon=[72.6717,72.6727,73.0715,73.0725,73.2634,73.2644,66.9743,66.9753,71.4686,71.4696] #wlongitude of fire
+    lat=[28.969661, 28.987539, 29.359288, 28.561573, 29.385386]
+    lon=[63.421097, 64.665677, 64.372562, 62.791874, 61.593408]
+    wangle=random.randint(0,90)
+    trav=random.randint(0,360)
+    #rangee=random.randrange(1000,5000,50)  #range of fire
+    wangle=random.randint(0,90) #elevation wangle
+    wspeed=random.randint(3000,4000)
+    waltitude=random.randint(0,2000)
+    wammuniation=random.uniform(0,100)
+    noofamm=random.randint(1,3) #rate of fire #Range is upto 120000 thats why we can eliminate this in final dataset
+    deploymenttime=random.randint(1,10)
+    wstatus=random.randint(0,1)
+    af= math.radians(wangle)
+
+    rangee=(((wspeed**2)*math.sin(2*45))/127008)
+    weaponid=WID[index]
+    #WID.remove(weaponid)  #removing for unique id
+    wnamee=wname[index]
+    #index=random.randint(0,4)
+    l1=lat[index]
+    l2=lon[index]     
+    wPreviousPerformance=random.randint(1,10)
+    wfamiliarity= random.randint(1,10)
+
+        
+    new=Weapon(weaponid,wnamee,waltitude,wspeed,l1,l2,rangee,wangle,trav,wammuniation,noofamm,deploymenttime,wstatus,wPreviousPerformance,wfamiliarity)
+    return new
+ 
+def HaversineDistance(lon1, lat1, lon2, lat2,alt1,alt2=0):
+    """
+    Calculate the great circle distance between two points 
+    on the earth (specified in decimal degrees)
+    """
+    # convert decimal degrees to radians 
+    lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
+    # haversine formula 
+    dlon = lon2 - lon1 
+    dlat = lat2 - lat1 
+    a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
+    c = 2 * asin(sqrt(a)) 
+    r = 6378.1 # Radius of earth in kilometers. Use 3956 for miles
+    d=c*r
+    alt1=alt1/1000 #converting altitude in KMs
+    alt2=alt2/1000
+    h=alt1-alt2
+    distance = sqrt( d**2+ h**2)
+    
+    return distance
+def RangeEfficiency(Distance,maxRange):
+    minRange=maxRange/6
+    optimalRange=(maxRange+minRange)/2
+    if Distance >= optimalRange and Distance < maxRange:
+        Efficiency = optimalRange/Distance
+        return Efficiency 
+    elif Distance <= optimalRange and Distance > minRange:
+        Efficiency = optimalRange/(Distance+(optimalRange-Distance)*2)
+        return Efficiency
+    else:
+        return 0
+
+def calculateTimeToThreat(weaponVelocity,distanceFromThreat):
+    #s=v*t
+    #t=s/v
+    #v in km/h
+    #s in kms
+    return distanceFromThreat/weaponVelocity
 def main():
     t=1
     threat=threatgeneration()
-    print(threat)
+    #print(threat)
     simulation()
     
 if __name__ == '__main__':

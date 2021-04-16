@@ -16,20 +16,34 @@
 </head>
 <body>
 <!-- As a heading -->
-<nav class="navbar navbar-light bg bg-dark">
+<nav class="navbar navbar-light" style="background-color:#1a4f6d ;">
   <span class="navbar-brand mb-0 h1" style="color: white">TEWA</span>
-  <span class="h4 mb-0 justify-content-center" style="color: green">
-    Pakistan Zindabad
-  </span>
+  <span class="h4 mb-0 " style="color:darkseagreen ">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GIS Simulator
+    <br/>
+    <span id="text" class="lead" style="color: azure; font-size: smaller;">Simulation Time Left: </span>  
+    <span id="timer" class="lead"  style="color:coral;font-size: smaller;">Time</span> 
+</span>
   <span class="navbar-text mb-0 h5" style="color: white">
     Air Defence
-    </span>
-</nav>
-  
- 
-    <div id="map" style="width: 100%; height: 900px;" >
+       
+</span>
+    
 
+</nav>
+
+<div  style="border-style: solid; border-color: coral;">
+    <div id="map" style="float: left; width: 80%; height:710px;" >
+          
+        </div>
+        <h3 style="float: left; margin-top: 20px; margin-left: 100px; background-color: white;color: #1a4f6d;">
+            Results
+        </h3 >
+        <div id="dvTable" style="float: left; margin-left:0px; width: 20%;height:600px;background-color: white;color: #1a4f6d; table-layout: fixed;" class=" table table-hover">
+   
     </div>
+       </div>
+<div id="footer" style="float: left;background-color: #1a4f6d;color: white;width: 100%;height:15px"></div>        
 </body>
 
 <script src="{% static './Leaflet/data/PAK_adm3.js' %}"></script>
@@ -44,7 +58,7 @@ function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
   }
 // Set View 
-var map = L.map("map").setView([30.3753, 69.3451], 5);
+var map = L.map("map").setView([28.8841915, 63.1860714], 8);
 // -------------------- Icons-------------------------------
 var greenIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
@@ -57,6 +71,10 @@ var greenIcon = new L.Icon({
 defenceIcon= new L.icon({
     iconUrl: "{%static './Leaflet/badge.png'%}",
         iconSize: [25, 34]
+    });
+weaponIcon= new L.icon({
+    iconUrl: "{%static './Leaflet/weapon.png'%}",
+        iconSize: [40, 40]
     });
 planeIcon= new L.icon({
         iconUrl: "{%static './Leaflet/plane.png' %}",
@@ -110,42 +128,82 @@ var baseLayers ={
 };
 
 //----------------------------------Defended Assets-----------------------------------------
+var weapon1=L.marker([28.969661, 63.421097],{
+    draggable : true,
+    title: "Weapon Placed",
+    opacity:0.9,
+    icon: weaponIcon
 
-var marker=L.marker([33.6844,73.0479],{
+}).addTo(map).bindPopup("<p> Weapon 1 </p>");
+var weapon2=L.marker([28.987539, 64.665677],{
+    draggable : true,
+    title: "Weapon Placed",
+    opacity:0.9,
+    icon: weaponIcon
+
+}).addTo(map).bindPopup("<p> Weapon 2 </p>");
+var weapon3=L.marker([29.359288, 64.372562],{
+    draggable : true,
+    title: "Weapon Placed",
+    opacity:0.9,
+    icon: weaponIcon
+
+}).addTo(map).bindPopup("<p> Weapon 3 </p>");
+var weapon4=L.marker([28.561573, 62.791874],{
+    draggable : true,
+    title: "Weapon Placed",
+    opacity:0.9,
+    icon: weaponIcon
+
+}).addTo(map).bindPopup("<p> Weapon 4 </p>");
+var weapon5=L.marker([29.385386, 61.593408],{
+    draggable : true,
+    title: "Weapon Placed",
+    opacity:0.9,
+    icon: weaponIcon
+
+}).addTo(map).bindPopup("<p> Weapon 5 </p>");
+
+var weaponsMarker = [weapon1,weapon2,weapon3,weapon4,weapon5]
+var marker=L.marker([28.959660, 63.411098],{
     draggable : true,
     title: "This is Islamabad",
     opacity:1.0,
     icon: defenceIcon
 
-}).addTo(map).bindPopup("<h1> Islmabad </h1> <p> This is the information about the marker </p>");
-var markerSargodha=L.marker([32.0455,72.6716],{
+}).addTo(map).bindPopup("<h3> Low Profile </h3> <p> Vitality 3 </p>");
+var markerSargodha=L.marker([28.967538, 64.645676],{
         draggable : true,
         title: "Sargodha Air base",
         opacity:1.0,
         icon: defenceIcon
              
-    }).addTo(map).bindPopup("<h1> Sargodha Air base </h1> <p> This is the information about the marker </p>");
-    var markerGHQ=L.marker([33.6260,73.0714],{
+    }).addTo(map).bindPopup("<h3> Medium Profile </h3> <p> Vitality 4 </p>");
+    var markerGHQ=L.marker([29.339287, 64.392563],{
         draggable : true,
         title: "GHQ Pindi",
         opacity:1.0,
         icon: defenceIcon
              
-    }).addTo(map);
-    var markerPMA=L.marker([34.1887,73.2633],{
+    }).addTo(map).bindPopup("<h3> High Profile </h3> <p> Vitality 7 </p>");;
+    var markerPMA=L.marker([28.581572, 62.761875],{
         draggable : true,
         title: "Pakistan Military Academy Kakul",
         opacity:1.0,
         icon: defenceIcon
              
-    }).addTo(map);
-    var markerNavalBase=L.marker([24.8400,66.9742],{
+    }).addTo(map).bindPopup("<h3> Medium Profile </h3> <p> Vitality 5 </p>");
+    var markerNavalBase=L.marker([29.365385, 61.573407],{
         draggable : true,
         title: "Naval Base Karachi",
         opacity:1.0,
         icon: defenceIcon
              
-    }).addTo(map);
+    }).addTo(map).bindPopup("<h3> Medium Profile </h3> <p> Vitality 6 </p>");;
+
+
+
+/*
     var markerNavalBase=L.marker([24.8400,66.9742],{
         draggable : true,
         title: "Naval Base Karachi",
@@ -160,7 +218,7 @@ var markerSargodha=L.marker([32.0455,72.6716],{
         icon: defenceIcon
              
     }).addTo(map);
-    
+  */  
 //------------------------------------------Pakistan Administrative Boundaries----------------------------------------
     $.getJSON("{%url 'pakdata' %}", function(data){
         L.geoJSON(data,{
@@ -176,6 +234,24 @@ var markerSargodha=L.marker([32.0455,72.6716],{
         }
         }).addTo(map)
     })
+    var customers = new Array();
+        customers.push(["Threat Detail", "   In Range Of    ", "Selected"]);
+        customers.push([1, "John Hammond", "United States"]);
+        customers.push([2, "Mudassar Khan", "India"]);
+        customers.push([3, "Suzanne Mathews", "France"]);
+        customers.push([4, "Robert Schidner", "Russia"]);
+ 
+        //Create a HTML Table element.
+ 
+        //Get the count of columns.
+        var columnCount = customers[0].length;
+ 
+        //Add the header row.
+       
+      
+ 
+        //Add the data rows.
+     
     
 //var myMovingMarker = L.Marker.movingMarker([[33.6844,73.0479],[30.6844,75.0479]],
   //  [20000],{icon:planeIcon,
@@ -277,6 +353,24 @@ var delayInMilliseconds = 7000; //7 seconds
 */
   
   //-----------------------------------------AJAX call-------------------------
+  var table = document.createElement("TABLE");
+   table.border = "1";
+   var columnCount = 3;
+   var row = table.insertRow(-1);
+   
+
+   for (var i = 0; i < columnCount; i++) {
+            var headerCell = document.createElement("TH");
+            headerCell.innerHTML = customers[0][i];
+            
+            row.appendChild(headerCell);
+        }
+
+        var dvTable = document.getElementById("dvTable");
+        dvTable.innerHTML = "";
+        dvTable.appendChild(table);
+    
+ 
 $.ajax({
     url: "{% url 'getSimulatorData' %}",
     type: "GET",
@@ -284,21 +378,46 @@ $.ajax({
         l1=data.Lat[0]; // latitude
         l2=data.Long[0]; // longitude
         var markerInLoop= {}; // moving marker
+        var timeFrame=data.timeFrame
         newL1={}; 
         newL2={};
         newAngle={}
-        newTi={};
+        newTi={}; 
+        newspeed="";
         newCW="";
         newname="";
         newTS="";
+        var data1;
         var newmarkerInLoop= {};
+        var weaponInfo= {}
         var i=0
         var j=0
         var k=0
-        loopvalue=12
+        var circle={}
+        var windex=-1;
+        var planeKilled = false
+        var firstTime = true
+        var planeKilled2= false
+        var firstTime2=true
+        var windex2=-1
+        loopvalue=13
+        for(let i=0; i<weaponsMarker.length;i++){
+            var gmarker=weaponsMarker[i];
+            var dummy,coords = gmarker.getLatLng();
+            circle = L.circle([coords.lat,coords.lng], {
+                    color: "",
+                    fillColor: "#7FFF00",
+                    fillOpacity: 0.3,
+                    radius: parseInt(data.weaponsRange[i])*1000
+            }).addTo(map);
+        }
         for(let i = 0; i <loopvalue; i++) {
             setTimeout(() => {
-                if(j<data.Lat.length-2){
+                document.getElementById("timer").innerHTML= `${((loopvalue-j)-1)*7} seconds`
+                
+               
+                
+                if(j<data.Lat.length-1 && planeKilled==false){
                     console.log(data.Lat[j],data.Lat[j+1])
                     console.log(data.Long[j],data.Long[j+1])
                     console.log(data.angles[j])
@@ -314,7 +433,7 @@ $.ajax({
 
                             
                             }).addTo(map)
-                        markerInLoop.bindPopup('Plane: '+data.name+'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore + '</br>' +'Threat Index: ' + data.threatIndex[i].toFixed(2)).openPopup();
+                        markerInLoop.bindPopup('Plane: '+data.name+'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore+'</br>'+'Threat Speed: '+ data.speed + '</br>' +'Threat Index: ' + data.threatIndex[i].toFixed(2)+ '</br>' +'Threat Health: ' + data.threatHealth[j].toFixed(2));
                         markerInLoop.start();
                     }
                     
@@ -326,7 +445,7 @@ $.ajax({
 
                             
                             }).addTo(map);
-                        markerInLoop.bindPopup('Plane: '+data.name +'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore + '</br>' +'Threat Index: ' + data.threatIndex[i].toFixed(2));
+                        markerInLoop.bindPopup('Plane: '+data.name +'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore +'</br>'+'Threat Speed: '+ data.speed+ '</br>' +'Threat Index: ' + data.threatIndex[i].toFixed(2));
                         
                         markerInLoop.start();
                     }
@@ -339,17 +458,129 @@ $.ajax({
 
                             
                             }).addTo(map);
-                            markerInLoop.bindPopup('Plane: '+data.name +'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore + '</br>' +'Threat Index: ' + data.threatIndex[i].toFixed(2));
+                            markerInLoop.bindPopup('Plane: '+data.name +'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore+'</br>'+'Threat Speed: '+ data.speed + '</br>' +'Threat Index: ' + data.threatIndex[i].toFixed(2));
                         
                         markerInLoop.start();
                     }
+                    
+                    if(timeFrame[j].length>0){
+                        if(table.rows.length>=4){
+                            table.deleteRow(1)
+                        }
+                        row = table.insertRow(-1);
+                        for (var m = 0; m < columnCount; m++) {
+                            if(m==0){
+                                var cell = row.insertCell(-1);
+                                if(data.threatHealth[j]<0){
+                                    cell.innerHTML = `1- ${data.name} <br/> Health: 0.0`;
+                                    cell.style="color:red;"
+                                }
+                                else{
+                                    cell.innerHTML = `1- ${data.name} <br/> Health: ${data.threatHealth[j].toFixed(1)}`;
+                                    
+                                }
+                            }
+
+                            if(m==1){
+                                var cell = row.insertCell(-1)
+                                var insider =""
+                                for(var o =0; o<timeFrame[j].length; o++){
+                                    insider += `Weapon: ${timeFrame[j][o][1]+1} </br> Kill Probability: ${timeFrame[j][o][0].toFixed(4)} </br> `
+                               
+                                }
+                                cell.innerHTML= insider 
+                            }
+                            if(m==2){
+                                var cell = row.insertCell(-1)
+                                cell.innerHTML= `${data.weaponsResult[j][2]+1}`
+                            }
+                        }
+                   
+                    }
+
+                
+        
+
                 }
-                else if(j==data.Lat.length-2){ // If length of array containing Latitudes and Longitudes is going to end then remove makrer
+                 
+                if(j<data.Lat.length-1 && data.threatHealth[j] > 0 && planeKilled==false){
+                    if(data.weaponsResult[j][1]!= -1 ){
+                        windex= parseInt(data.weaponsResult[j][2])
+                        if(firstTime== false)
+                            {map.removeLayer(circle);}
+                        var mar= weaponsMarker[parseInt(data.weaponsResult[j][2])];
+                        firstTime=false
+                        var dummy,coords = mar.getLatLng()
+                        console.log(coords.lat,coords.lng)
+                        circle = L.circle([coords.lat,coords.lng], {
+                        color: "",
+                        fillColor: "#f01",
+                        fillOpacity: 0.3,
+                        radius: parseInt(data.weaponsRange[parseInt(data.weaponsResult[j][2])])*1000
+                    }).addTo(map).bindPopup('Kill Probability: '+data.weaponsResult[j][1]).openPopup();
+                    }
+                    else if (windex!=-1){
+                        map.removeLayer(circle);
+                        mar= weaponsMarker[windex];
+                        //
+                        var dummy,coords = mar.getLatLng()
+                        console.log(coords.lat,coords.lng)
+                        circle = L.circle([coords.lat,coords.lng], {
+                        color: "",
+                        fillColor: "#7FFF00",
+                        fillOpacity: 0.3,
+                        radius: data.weaponsRange[windex]*1000
+                        }).addTo(map);
+                    }
+                }
+                else if (data.threatHealth[j] <= 0 && planeKilled==false ){
+                    planeKilled = true
+                    
+                    alert(`Threat Neutralised`)
+                    if(firstTime== false)
+                            {map.removeLayer(circle);}
+                            //map.removeLayer(circle);
+                            map.removeLayer(markerInLoop);
+                            markerInLoop=L.Marker.movingMarker([[data.Lat[j],data.Long[j]],[data.Lat[j+1],data.Long[j+1]]],
+                            [7000],{icon:planegreenIcon,
+                                rotationAngle:data.angles[j],
+                                opacity: 0.3,
+                            
+                            }).addTo(map)
+                        markerInLoop.bindPopup('Plane: '+data.name+'</br>'+'Carried Ammunition: '+ data.CarriedWeapon+'</br>'+'Terror Imparted: '+ data.threatScore+'</br>'+'Threat Speed: '+ data.speed + '</br>' +'Threat Index: ' + data.threatIndex[i].toFixed(2)).openPopup();
+                        
+                    windex = parseInt(data.weaponsResult[j][2])
+                        mar= weaponsMarker[windex];
+                        //
+                        var dummy,coords = mar.getLatLng()
+                        console.log(coords.lat,coords.lng)
+                        circleFinal = L.circle([coords.lat,coords.lng], {
+                        color: "",
+                        fillColor: "#7FFF00",
+                        fillOpacity: 0.1,
+                        radius: data.weaponsRange[windex]*1000
+                        }).addTo(map).bindPopup('Kill Probability: '+data.weaponsResult[j][1]).openPopup();
+                       // map.removeLayer(markerInLoop);    
+                        //return;
+                }
+
+                else if(j==data.Lat.length-1){ // If length of array containing Latitudes and Longitudes is going to end then remove makrer
                     map.removeLayer(markerInLoop);
+
+                    map.removeLayer(circle);
+                    mar= weaponsMarker[windex];
+                        //
+                    var dummy,coords = mar.getLatLng()
+                    circle = L.circle([coords.lat,coords.lng], {
+                        color: "",
+                        fillColor: "#7FFF00",
+                        fillOpacity: 0.3,
+                        radius: data.weaponsRange[windex]*1000
+                        }).addTo(map);
                 }
                 // If the second planes gets activated
-                if(newL1.length>0){
-
+                if(newL1.length>0 && planeKilled2 == false){
+                    console.log(data1)
                     if(newTi[k]>=0 && newTi[k]<=12){
                         map.removeLayer(newmarkerInLoop);
                         newmarkerInLoop=L.Marker.movingMarker([[newL1[k],newL2[k]],[newL1[k+1],newL2[k+1]]],
@@ -358,7 +589,7 @@ $.ajax({
 
                             
                             }).addTo(map);
-                        newmarkerInLoop.bindPopup('Plane: '+newname +'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS+ '</br>' +'Threat Index: ' + newTi[k].toFixed(2))
+                        newmarkerInLoop.bindPopup('Plane: '+newname +'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS+'</br>'+'Threat Speed: '+ newspeed+ '</br>' +'Threat Index: ' + newTi[k].toFixed(2)+ '</br>' +'Threat Health: ' + data1.threatHealth[k].toFixed(2))
                         newmarkerInLoop.start();
                     }
                     
@@ -369,7 +600,7 @@ $.ajax({
                                 rotationAngle:newAngle[k],
 
                             }).addTo(map);
-                        newmarkerInLoop.bindPopup('Plane: '+newname +'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS+ '</br>' +'Threat Index: ' + newTi[k].toFixed(2)).openPopup();
+                        newmarkerInLoop.bindPopup('Plane: '+newname +'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS+'</br>'+'Threat Speed: '+ newspeed+ '</br>' +'Threat Index: ' + newTi[k].toFixed(2)).openPopup();
                         newmarkerInLoop.start();
                     }
                     if(newTi[k]>20.5 ){
@@ -380,21 +611,122 @@ $.ajax({
 
                             }).addTo(map);
                         
-                        newmarkerInLoop.bindPopup('Plane: '+newname +'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS+ '</br>' +'Threat Index: ' + newTi[k].toFixed(2));       
+                        newmarkerInLoop.bindPopup('Plane: '+newname +'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS+'</br>'+'Threat Speed: '+ newspeed+ '</br>' +'Threat Index: ' + newTi[k].toFixed(2));       
                         newmarkerInLoop.start();
                     }
+                    if(data1.timeFrame[k].length>0){
+                        if(table.rows.length>=4){
+                            table.deleteRow(1)
+                        }
+                        row = table.insertRow(-1);
+                        for (var m = 0; m < columnCount; m++) {
+                            if(m==0){
+                                var cell = row.insertCell(-1);
+                                if(data1.threatHealth[k]<0){
+                                    cell.innerHTML = `2- ${data1.name} <br/> Health: 0.0`;
+                                    cell.style="color:red;"
+                                }
+                                else{
+                                    cell.innerHTML = `2- ${data1.name} <br/> Health: ${data1.threatHealth[k].toFixed(1)}`;
+                                    
+                                }
+
+                            }
+                            if(m==1){
+                                var cell = row.insertCell(-1)
+                                var insider =""
+                                for(var o =0; o<data1.timeFrame[k].length; o++){
+                                    insider += `Weapon: ${data1.timeFrame[k][o][1]+1} </br> Kill Probability: ${data1.timeFrame[k][o][0].toFixed(4)} </br> `
+                               
+                                }
+                                cell.innerHTML= insider 
+                            }
+                            if(m==2){
+                                var cell = row.insertCell(-1)
+                                cell.innerHTML= `${data1.weaponsResult[k][2]+1}`
+                            }
+                        }
+                   
+                    }
+                    if( data1.threatHealth[k] > 0 && planeKilled2==false){
+                    if(data1.weaponsResult[k][1]!= -1 ){
+                        windex2= parseInt(data1.weaponsResult[k][2])
+                        if(firstTime2== false)
+                            {map.removeLayer(circle);}
+                        var mar= weaponsMarker[parseInt(data1.weaponsResult[k][2])];
+                        firstTime2=false
+                        var dummy,coords = mar.getLatLng()
+                        console.log(coords.lat,coords.lng)
+                        circle = L.circle([coords.lat,coords.lng], {
+                        color: "",
+                        fillColor: "#f01",
+                        fillOpacity: 0.3,
+                        radius: parseInt(data1.weaponsRange[parseInt(data1.weaponsResult[k][2])])*1000
+                    }).addTo(map).bindPopup('Kill Probability: '+data1.weaponsResult[k][1]).openPopup();
+                    }
+                    else if (windex2!=-1){
+                        map.removeLayer(circle);
+                        mar= weaponsMarker[windex2];
+                        //
+                        var dummy,coords = mar.getLatLng()
+                        console.log(coords.lat,coords.lng)
+                        circle = L.circle([coords.lat,coords.lng], {
+                        color: "",
+                        fillColor: "#7FFF00",
+                        fillOpacity: 0.3,
+                        radius: data1.weaponsRange[windex2]*1000
+                        }).addTo(map);
+                    }
+                }
+                else if (data1.threatHealth[k] <= 0 && planeKilled2==false ){
+                    planeKilled2 = true
+                    
+                    alert(`Threat Neutralised`)
+                    if(firstTime2== false)
+                            {map.removeLayer(circle);}
+                            map.removeLayer(circle);
+                            map.removeLayer(newmarkerInLoop);
+                            newmarkerInLoop=L.Marker.movingMarker([[newL1[k],newL2[k]],[newL1[k+1],newL2[k+1]]],
+                            [7000],{icon:planegreenIcon,
+                                rotationAngle:data1.angles[k],
+                                opacity:0.2,
+                                
+                            }).addTo(map)
+                            newmarkerInLoop.bindPopup('Plane: '+newname +'</br>'+'Carried Ammunition: '+ newCW+'</br>'+'Terror Imparted: '+ newTS+'</br>'+'Threat Speed: '+ newspeed+ '</br>' +'Threat Index: ' + newTi[k].toFixed(2)+ '</br>' );       
+                        
+                    windex2 = parseInt(data1.weaponsResult[k][2])
+                        mar= weaponsMarker[windex2];
+                        //
+                        var dummy,coords = mar.getLatLng()
+                        console.log(coords.lat,coords.lng)
+                        circleFinal = L.circle([coords.lat,coords.lng], {
+                        color: "",
+                        fillColor: "#7FFF00",
+                        fillOpacity: 0.1,
+                        radius: data1.weaponsRange[windex]*1000
+                        }).addTo(map).bindPopup('Kill Probability: '+data1.weaponsResult[k][1]).openPopup();
+                       // map.removeLayer(markerInLoop);    
+                        //return;
+                       // console.log("Kill Prob",)
+
+                }
                     console.log("NewTi",newTi[k])
                     k+=1
-                    if(k==newL1.length-2){
+                    if(k==newL1.length-1){
                         map.removeLayer(newmarkerInLoop);
+                        document.getElementById("text").innerHTML= ``        
+                        document.getElementById("timer").innerHTML= `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Simulation Ended`
+                        
                     }
-                
+
+                    
                 }
                 if(j==3){ // loop index reaches 3 another plane appears
                     $.ajax({
                         url: "{% url 'getSimulatorData' %}",
                         type: "GET",
-                        success: function(data1) {
+                        success: function(data) {
+                            data1=data
                             newL1=data1.Lat
                             newL2=data1.Long
                             newAngle=data1.angles
@@ -402,6 +734,7 @@ $.ajax({
                             newname=data1.name
                             newCW=data1.CarriedWeapon
                             newTS=data1.threatScore
+                            newspeed= data1.speed
                         }
                     }
                     )
@@ -413,10 +746,11 @@ $.ajax({
                 j+=1
                 
             }, 7000*i);
+
         }
-        
     }
 });
+     
 
 
 var overLayers= {
