@@ -1,15 +1,16 @@
 from django.shortcuts import render, redirect
-from .models import PakAdm3
+from .models import PakAdm3,WeaponLoc, DefendedAssetLoc,SimulatorEssential
 from django.core.serializers import serialize
 from django.http import HttpResponse,JsonResponse
-from TS2 import simulation,weapongeneration, HaversineDistance, RangeEfficiency, calculateTimeToThreat
+from TS2 import simulation,weapongeneration, HaversineDistance, RangeEfficiency, calculateTimeToThreat, weaponsInfo
 import pandas as pd
 from fyp import getThreatIndex
+import requests
+import json
 
-weaponsdata=[]
-for i in range(0,5):
-    weaponsdata.append(weapongeneration(i))
 model = pd.read_pickle(r'E:\FYP\FYP code\gisFYP\new_model.pickle')
+weaponsdata=[]
+weaponsdata=weaponsInfo()
 
 
 def index(request):
@@ -17,8 +18,30 @@ def index(request):
 def PakData(request):
     pakdata=serialize('geojson',PakAdm3.objects.all())
     return HttpResponse(pakdata,content_type='geojson')
+
+def weapons(request): 
+    weapon_db=WeaponLoc.objects.all()
+    weaponsreq=serialize('json',weapon_db)
+    return JsonResponse(weaponsreq,safe=False)
+
+def defendedassets(request):
+    assests_db=DefendedAssetLoc.objects.all()
+    assetsreq=serialize('json',assests_db)
+    return JsonResponse(assetsreq,safe=False)
+
+def simulationInfo(request):
+    records= SimulatorEssential.objects.all()
+    recordsreq=serialize('json',records)
+    return JsonResponse(recordsreq,safe=False)
+
 def getSimulatorData(request):
-    Lat,Long,angles,threatscore,threatid,threatspeed,ammunition,altitude,name,rangee=simulation()
+    response= requests.get("http://localhost:8000/get_threats/")
+    obj=response.json()
+    res_lat=float(obj["lat"])
+    res_lon=float(obj["lon"])
+    res_angle=int(obj["angle"])
+
+    Lat,Long,angles,threatscore,threatid,threatspeed,ammunition,altitude,name,rangee=simulation(res_lat,res_lon,res_angle)
     #ammunition=0
     threatIndex=[]
     for i in range (len(Lat)):
@@ -36,7 +59,7 @@ def getSimulatorData(request):
     weaponwisedistance=[]
     #print(weaponsdata[0].wlatitude)
     for i in range(len(weaponsdata)):
-        # print(weaponsdata[i])
+        #print(weaponsdata[i])
         weaponwisedistance=[]
         for j in range (len(Lat)):
             weaponwisedistance.append(HaversineDistance(weaponsdata[i].wlongitude,weaponsdata[i].wlatitude,Long[j],Lat[j],altitude,weaponsdata[i].waltitude))
@@ -46,7 +69,7 @@ def getSimulatorData(request):
     for j in range (len(Lat)):
         threatByWeapon=[]
         for i in range(len(weaponsdata)):
-            if(weaponsdata[i].wmaxrange>distancebyweapons[i][j] and weaponsdata[i].wmaxrange/6<distancebyweapons[i][j] ):
+            if(weaponsdata[i].wmaxrange>distancebyweapons[i][j] and weaponsdata[i].wmaxrange/9<distancebyweapons[i][j] ):
                 weaponrange=RangeEfficiency(distancebyweapons[i][j],weaponsdata[i].wmaxrange) 
                 status=weaponsdata[i].wstatus
                 previousperformance= weaponsdata[i].wpreviousperformance
@@ -65,6 +88,14 @@ def getSimulatorData(request):
     timeFrame=[]
     #singleTimeFrame = []
     #print(weaponsthreats)
+    
+    #---------------Normalization-------------------------
+    #for i in range(len(weaponsthreats)):
+     #   for j in range(len(weaponsthreats[i])):
+      #      weaponsthreats[i][j][len(weaponsthreats[i][j])-2]= ( weaponsthreats[i][j][len(weaponsthreats[i][j])-2]-1)/(10-1)
+    
+    
+    
     for i in range(len(weaponsthreats)):
         #print(len(weaponsthreats[i]))
         #print("Frame number",i)
@@ -73,9 +104,10 @@ def getSimulatorData(request):
         singleTimeFrame=[]
         for j in range (len(weaponsthreats[i])):
           #  print("Weapon Number",j, " Will hit Threat at Time Frame ",i, )
-            if(j==0):
+            if(j==0): 
                 maxssp=weaponsthreats[i][j][len(weaponsthreats[i][j])-2]
                 maxindex=weaponsthreats[i][j][len(weaponsthreats[i][j])-1]
+                
                 singleTimeFrame.append([maxssp,maxindex])
             else:
                 if(weaponsthreats[i][j][len(weaponsthreats[i][j])-2]>maxssp):
@@ -88,23 +120,32 @@ def getSimulatorData(request):
         #print("Max One SSP ",maxssp, " and Weapon Number ", maxindex)
         #print(weaponsthreats[i])
         finalResult.append([i,maxssp,maxindex])
-    print(timeFrame)
-    for i in range(len(timeFrame)):
-        print("At time frame ",i," We have ",len(timeFrame[i])," options")
+    #print(timeFrame)
+    #for i in range(len(timeFrame)):
+    #    for j in range(len(timeFrame[i])):
+            #timeFrame[i][j][0]= ( timeFrame[i][j][0])/(10)
         #pass
-    check= True
-    threatHealth.append(10)
+    #print(finalResult)
+
     for i in range(len(finalResult)):
-        if(finalResult[i][1]!=-1):
-            if(threatHealth[i]>0):            
-                health=threatHealth[i]-finalResult[i][1]
-                threatHealth.append(health)
+        if(i==0):
+            if(finalResult[i][1]!=-1):
+                threatHealth.append(15-finalResult[i][1])
             else:
-                threatHealth.append(threatHealth[i])
-         
+                threatHealth.append(15)
         else:
-            threatHealth.append(threatHealth[i])
-         
+            if(finalResult[i][1]!=-1):
+                if(threatHealth[i-1]>0):            
+                    health=threatHealth[i-1]-finalResult[i][1]
+                    threatHealth.append(health)
+                else:
+                    threatHealth.append(threatHealth[i-1])
+            
+            else:
+                threatHealth.append(threatHealth[i-1])
+   # for i in range(len(finalResult)):
+   #       finalResult[i][1]= ( finalResult[i][1])/(10)
+    
     #print(threatHealth)
     #print(finalResult)
     weaponRange=[]
@@ -125,35 +166,7 @@ def getSimulatorData(request):
         "threatHealth": threatHealth,
         "timeFrame":timeFrame
     }
-
+    #print(threatHealth)
+    #print(finalResult)
+    #print(len(weaponsdata))
     return JsonResponse(data)
-"""
-#boundaries for THreats
-[60.89943695068354,29.83749580383312],
-[62.5035400390625,29.376403808593807],
-[64.91727447509766,29.556589126586857],
-[65.87509918212902,29.743312835693473],
-[66.09905242919916,29.282470703125],
-[64.83136749267584,28.734996795654297],
-[63.93742752075195,28.40848159790039],
-[62.802379608154354,27.88588905334484],
-[61.39097213745123,29.21361160278326],
-[61.383487701416016,29.221462249755973]
-
-#Defended Assets
-28.959660, 63.411098
-28.967538, 64.645676
-29.339287, 64.392563
-28.581572, 62.761875
-29.365385, 61.573407
-
-#Weapon Systems
-28.959661, 63.411097
-28.967539, 64.645677
-29.339288, 64.392562
-28.581573, 62.761874
-29.365386, 61.573408
-
-
-
-"""
