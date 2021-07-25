@@ -41,8 +41,8 @@ def threatgeneration(lat,lon,angle):
      name1list=[]
      rangee=random.randrange(1000,4000,50)
      threatscore =random.randint(1,7)
-     speed=random.randint(1700,2000)
-     ammuniation=random.randint(1,10)
+     speed=random.randint(1000,3000)
+     ammuniation=random.randint(0,10)
      for names in name1: 
         #print (key, value) 
         name1list.append(names['name'])
@@ -83,7 +83,7 @@ def threatgeneration(lat,lon,angle):
      dummy2=dummy+90
      angle=random.randint(dummy,dummy2)
 
-     altitude=random.randint(1000,5000)
+     altitude=random.randint(15000,20000)
      new=Threat(threatid,namee,mod,typee,threatscore,speed,lat,lon,rangee,angle,ammuniation,altitude)
      return new
 

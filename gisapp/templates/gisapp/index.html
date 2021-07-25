@@ -57,7 +57,7 @@
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
   }
-// Set View 
+// Set View and zoom
 var map = L.map("map").setView([30.3753, 69.3451], 6);
 // -------------------- Icons-------------------------------
 var greenIcon = new L.Icon({
@@ -151,6 +151,7 @@ let assets_lat=[]
     let assets_lon=[]
     let assets_name=[]
     let assets_vitality=[]
+    //Ajax request to DefendedAssets in view.py to load data
     $.ajax({
         url: "{%url 'defendedassets' %}",
         async: false,
@@ -214,122 +215,12 @@ $.getJSON("{%url 'pakdata' %}", function(data){
             } 
         }
     });
-//    console.log(wname)
 
-    
-        var customers = new Array();
-        customers.push(["Threat Detail", "  Was In Range Of    ", "Selected","Current Health"]);
-        //Create a HTML Table element.
- 
-        //Get the count of columns.
-        var columnCount = customers[0].length;
- 
-        //Add the header row.
-       
-      
- 
-        //Add the data rows.
-     
-    
-//var myMovingMarker = L.Marker.movingMarker([[33.6844,73.0479],[30.6844,75.0479]],
-  //  [20000],{icon:planeIcon,
-    //    rotationAngle:125
-    
-    //}).addTo(map);
-//...
-//myMovingMarker.start();
-/*
-function getNextLatLong(l2,l1,angrad,distance,){
-    var lon1=l1*(Math.PI/180);   
-    var lat1=l2*(Math.PI/180);
-   
-    var lat=Math.asin(Math.sin(lat1)*Math.cos(distance/radius)+Math.cos(lat1)*Math.sin(distance/radius)*Math.cos(angrad));
-    var lon=lon1+Math.atan2(Math.sin(angrad)*Math.sin(distance/radius)*Math.cos(lat1),
-                      Math.cos(distance/radius)-Math.sin(lat1)*Math.sin(lat));
-              //refreshing time
-    var llon=lon * (180/Math.PI);
-    var llat=lat * (180/Math.PI);
-    return {
-        llat:llat,
-        llon:llon
-    };
-    
-};
-*/
-/*
-var delayInMilliseconds = 7000; //7 seconds
-  var time=1;
-  var consttime=7
-  var l2=31.3260;  //lat
-  var l1=75.7652; //lon
-  var secondl2=32.6675;
-  var secondl1=69.8597
-  var radius= 6378.1;
-  var angle=260;
-  var secondangle=45;
-  var markerInLoop= {};
-  var secondmarkerInLoop={};
+    // Create new information table in the system
+    var infoTable = new Array();
+    infoTable.push(["Threat Detail", "  Was In Range Of    ", "Selected","Current Health"]);
+    var columnCount = infoTable[0].length;
 
-  (function myLoop(i) {
-    setTimeout(function() {
-      //var angle=Math.random(0,90);
-      if(i%3==0){
-      angle1=getRandomArbitrary(angle,360);
-        angle2=getRandomArbitrary(0,angle);
-        angle=angle1+angle2;
-        angle=angle/2
-        secondangle1=getRandomArbitrary(secondangle,360);
-        secondangle2=getRandomArbitrary(0,secondangle);
-        secondangle=secondangle1+secondangle2;
-        secondangle=secondangle/2
-        
-    }
-      var speed=getRandomArbitrary(350,450)
-
-      var distance =speed/consttime;
-      angrad= angle * (Math.PI/180);
-      secondangrad= secondangle * (Math.PI/180);
-         
-      //var angrad=1.57; //angle in radian
-        var newCords= getNextLatLong(l2,l1,angrad,distance);
-        var secondnewCords=getNextLatLong(secondl2,secondl1,secondangrad,distance);
-        time+=7;
-      map.removeLayer(markerInLoop);
-      markerInLoop=L.Marker.movingMarker([[l2,l1],[newCords.llat,newCords.llon]],
-        [7000],{icon:planeIcon,
-            rotationAngle:angle
-        
-        }).addTo(map);
-    map.removeLayer(secondmarkerInLoop);
-    secondmarkerInLoop=L.Marker.movingMarker([[secondl2,secondl1],[secondnewCords.llat,secondnewCords.llon]],
-        [7000],{icon:planeIcon,
-            rotationAngle:secondangle 
-        }).addTo(map);
-    
-    //...
-    markerInLoop.start();
-    secondmarkerInLoop.start();
-    l1=newCords.llon;             
-    l2=newCords.llat;
-    secondl1=secondnewCords.llon;
-    secondl2=secondnewCords.llat;
-        
-    console.log("<b>longitude:</b>",l2);
-      console.log("<br><br>");
-      console.log("<b>latitude:</b>",l1);
-      console.log("<br><br>");
-      console.log("<b>angle:</b>",angle);
-      console.log("<br><br>");
-      console.log(i);
-      if(i==1){
-        map.removeLayer(markerInLoop);
-        map.removeLayer(secondmarkerInLoop);
-      }
-      if (--i) myLoop(i);   //  decrement i and call myLoop again if i > 0
-    }, delayInMilliseconds)
-  })(11); 
-*/
-  
   //-----------------------------------------Building a Table-------------------------
   var table = document.createElement("TABLE");
    table.border = "1";
@@ -339,7 +230,7 @@ var delayInMilliseconds = 7000; //7 seconds
 
    for (var i = 0; i < columnCount; i++) {
             var headerCell = document.createElement("TH");
-            headerCell.innerHTML = customers[0][i];
+            headerCell.innerHTML = infoTable[0][i];
             
             row.appendChild(headerCell);
         }
@@ -411,7 +302,7 @@ $.when(getData(i)).done(function(data){
 i+=1;
 }
 
-
+//---------------------------------------Add weapons on the display-------------------
 var weaponsMarker = []
 for(var i=0;i<wlat.length;i++)
 {
@@ -441,13 +332,23 @@ for(let i=0; i<weaponsMarker.length;i++){
 // -------------------------------------------Main Simulation Loop--------------------------------------------
 for(let j=0; j<simulationTime-1;j++){
         
+    //This function updates after every 7 seconds 
     setTimeout(() => {
+
+        //The timer on the top is updated every 7 seconds
         document.getElementById("timer").innerHTML= `${((simulationTime-j)-1)*7} seconds`
 
+            //Loop for every plane in the system
             for(let k=0;k<numberOfPlanes;k++){
-              //  console.log(timeFrame)
+             
+                //threatKilled[] mantains the track of wether the threat in the system is killed or not
                 if(threatKilled[k]==false){
+
+                    //If threat is not killed and after each 7 seconds
+                    //Remove the previous Moving marker representing the plane
                     map.removeLayer(markers[k]);
+                    //Check current ThreatIndex of the plane
+                    //If it is >5.5 then it is High level threat
                     if(threatIndex[k][j]>5.5){
 
                         markers[k]=L.Marker.movingMarker([[latitudes[k][j],longitudes[k][j]],[latitudes[k][j+1],longitudes[k][j+1]]],
@@ -460,6 +361,7 @@ for(let j=0; j<simulationTime-1;j++){
                             markers[k].bindPopup('Plane: '+names[k]+'</br>'+'Carried Ammunition: '+ carriedWeapon[k]+'</br>'+'Terror Imparted: '+ threatScore[k]+'</br>'+'Threat Speed: '+ speeds[k] + '</br>' +'Threat Index: ' + threatIndex[k][j].toFixed(2)+ '</br>' +'Threat Health: ' + threatHealth[k][j].toFixed(2));
                             markers[k].start();
                     }
+                    //Else it is a low level threat
                     else{
                         markers[k]=L.Marker.movingMarker([[latitudes[k][j],longitudes[k][j]],[latitudes[k][j+1],longitudes[k][j+1]]],
                             [7000],{
@@ -473,11 +375,16 @@ for(let j=0; j<simulationTime-1;j++){
                     
                     }
                     }
+                //This array exists and threat is not killed
                 if(timeFrame[k][j].length>0 && threatKilled[k]==false ){
+                   
+                   //Keeping the table length to 3
                     if(table.rows.length>=4){
                         table.deleteRow(1)
                     }
                     row = table.insertRow(-1);
+                 
+                 //Adding the real time situation in the table
                     for (var m = 0; m < columnCount; m++) {
                         if(m==0){
                             var cell = row.insertCell(-1);
@@ -523,6 +430,7 @@ for(let j=0; j<simulationTime-1;j++){
                     }   
                 }
                 
+                //Controlling the green and red layers of the weapons
                 if( threatHealth[k][j] > 0.0 && threatKilled[k]==false){
                     if(weaponsResult[k][j][1]!= -1 ){
                         {
@@ -535,13 +443,13 @@ for(let j=0; j<simulationTime-1;j++){
                             map.removeLayer(initialCircles[weaponindex[k]])
                             var mar= weaponsMarker[weaponindex[k]];
                             var dummy,coords = mar.getLatLng()
-                        //   console.log(coords.lat,coords.lng)
                             greenCircle = L.circle([coords.lat,coords.lng], {
                             color: "",
                             fillColor: "#7FFF00",
                             fillOpacity: 0.3,
                             radius: parseInt(weaponsRange[weaponindex[k]])*1000
                         }).addTo(map)
+                        //Adding the weapon assigned to greenCircle
                         initialCircles[weaponindex[k]]=greenCircle
                         }
 
@@ -550,17 +458,17 @@ for(let j=0; j<simulationTime-1;j++){
                         map.removeLayer(initialCircles[weaponindex[k]])
                         mar= weaponsMarker[parseInt(weaponsResult[k][j][2])];
                         dummy,coords = mar.getLatLng()
-                    //   console.log(coords.lat,coords.lng)
                         redCircle = L.circle([coords.lat,coords.lng], {
                         color: "",
                         fillColor: "#f01",
                         fillOpacity: 0.3,
                         radius: parseInt(weaponsRange[parseInt(weaponsResult[k][j][2])])*1000
                     }).addTo(map).bindPopup('Kill Probability: '+weaponsResult[k][j][1]);
+                    //Adding a red circle on weapon
                         initialCircles[weaponindex[k]]=redCircle
                     }
+
                     else if (weaponindex[k]!=-1){
-                        console.log("Hererere")
                         map.removeLayer(initialCircles[weaponindex[k]])
                         mar= weaponsMarker[weaponindex[k]];
 
@@ -631,6 +539,7 @@ for(let j=0; j<simulationTime-1;j++){
                     }
                         
                 }
+                //Handling the polylines while real time
                 if(threatKilled[k]==false){
                     for(let p=0;p<lines[k].length;p++){
                     //  console.log(lines[k][p])
