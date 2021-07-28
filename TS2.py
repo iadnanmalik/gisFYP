@@ -33,6 +33,7 @@ class Threat:
     def __repr__(self):
         return str(self)
 
+# Generating a threat 
 def threatgeneration(lat,lon,angle):
      ID1=ThreatValue.objects.values('id')
      name1=ThreatValue.objects.values('name')
@@ -87,7 +88,7 @@ def threatgeneration(lat,lon,angle):
      new=Threat(threatid,namee,mod,typee,threatscore,speed,lat,lon,rangee,angle,ammuniation,altitude)
      return new
 
-
+# Simulation creates path for the threats
 def simulation(lat,lon,angle):
     threat=threatgeneration(lat,lon,angle)
     l1=threat.longitude
@@ -109,12 +110,14 @@ def simulation(lat,lon,angle):
         lon1=l1*(math.pi/180)
         lat1=l2*(math.pi/180)
         angrad= angle * (math.pi/180)   #angle in radian
+        # Next Latittude and Longitude
         lat=math.asin(math.sin(lat1)*math.cos(distance/radius)+math.cos(lat1)*math.sin(distance/radius)*math.cos(angrad))
         lon=lon1+math.atan2(math.sin(angrad)*math.sin(distance/radius)*math.cos(lat1),
                           math.cos(distance/radius)-math.sin(lat1)*math.sin(lat))
         t+=7          #refreshing time
         llon=lon * (180/math.pi)
         llat=lat * (180/math.pi)
+        # Updating new latitudes and Longitudes
         l1=llon
         l2=llat
         ang= angrad * (180/math.pi)  #angle in degree
@@ -181,7 +184,7 @@ def weapongeneration(lat,lon):
         
     new=Weapon(weaponid,wnamee,waltitude,wspeed,lat,lon,rangee,wangle,trav,wammuniation,noofamm,deploymenttime,wstatus,wPreviousPerformance,wfamiliarity)
     return new
- 
+# The function to return list of weapons on calling
 def weaponsInfo():
     weapon_db=WeaponLoc.objects.all()
     weaponsLat=[]
@@ -216,13 +219,18 @@ def HaversineDistance(lon1, lat1, lon2, lat2,alt1,alt2=0):
     
     return distance
 
+# THe function to calculate the optimal range of hitting from weapon to threat
 def RangeEfficiency(Distance,maxRange):
+    # The minimum range a weapon can hit
     minRange=maxRange/6
+    # Optimal range of hitting
     optimalRange=(maxRange+minRange)/2
     if Distance >= optimalRange and Distance < maxRange:
+        # Efficient range of hitting the threat if it hasn't cross half way to the threat
         Efficiency = optimalRange/Distance
         return Efficiency 
     elif Distance <= optimalRange and Distance > minRange:
+        # Efficient range of hitting the threat if it has crossed half way to the threat
         Efficiency = optimalRange/(Distance+(optimalRange-Distance)*2)
         return Efficiency
     else:
